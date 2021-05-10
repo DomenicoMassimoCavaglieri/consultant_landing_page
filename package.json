@@ -4,10 +4,10 @@
   "description": "",
   "private": "true",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js --open",
+    "start": "webpack serve --open",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,14 +23,18 @@
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "sass": "^1.32.12",
+    "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.36.2",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
-  "dependencies": {
-    "html-webpack-plugin": "^5.3.1"
-  }
+  "dependencies": {}
 }

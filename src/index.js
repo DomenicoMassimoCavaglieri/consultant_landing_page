@@ -1,10 +1,9 @@
-console.log("Hello Webpack");
+import "./main.scss";
+import "./scripts/square";
+import "./scripts/testone";
 
-let title = document.getElementsByTagName("title");
-title[0].innerHTML = "Webmax";
 
-import { getSquare } from "./square.js";
-getSquare();
 
-import {printTestone} from "./testone";
-printTestone(); 
+
+
+

@@ -18,7 +18,7 @@ module.exports = {
     ],
     output: {
         filename: '[name].bundle.js', //Nome del file JS in dist con una variabile che crea dinamicamente il no,e dei pacchetti in dist
-        path: path.resolve(__dirname, "dist") //Percorso del file dioutput .js
+        path: path.resolve(__dirname, "dist") //Percorso del file di output .js con il costrutto di Node.js
     },
     module: {
         rules: [
