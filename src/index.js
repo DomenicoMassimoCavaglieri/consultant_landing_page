@@ -1,9 +1,2 @@
 import "./main.scss";
-import "./scripts/square";
-import "./scripts/testone";
-
-
-
-
-
-
+import "./assets/scripts/hello"; 
