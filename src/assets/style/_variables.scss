@@ -4,6 +4,7 @@ $clp-colors: (
     clp-transparent: transparent,
     clp-black-dark: #402b2b,
     clp-black-light: #505050,
+    clp-black-light-2: #717784,
     clp-black-green: #626780,
     clp-white-dark: #e5e5e5,
     clp-white: #ffffff,
@@ -11,6 +12,7 @@ $clp-colors: (
     clp-grey-light: #9d9d9d,
     clp-grey: #c8c8c8,
     clp-grey-2: #c4c4c4,
+    clp-grey-2-transp: #c4c4c41c,
     clp-purple: #9b9bca,
     clp-purple-2: #9595c9,
     clp-purple-light: #f5f5ff,
@@ -33,6 +35,7 @@ $breakpoints: (
     xl: 1440px,
     2xl: 1600px
 );
+
 $clp-default-transition: all 0.3s linear;
 $clp-default-border: solid 3px;
 $clp-widths: (

@@ -5,8 +5,21 @@
     width: map-get($clp-widths, full);
 }
 
+@mixin clp-flex() {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
 @mixin mq-min-width($width) {
     @media all and (min-width: $width) {
         @content;
     }
+}
+
+@mixin clp-txt($family,$size,$weight,$color) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
 }

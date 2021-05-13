@@ -46,25 +46,25 @@
 /* Background color */
 
 .clp-bg-transparent {
-    color: map-get($clp-colors, clp-transparent);
+    background-color: map-get($clp-colors, clp-transparent);
 }
 
 .clp-bg-grey-2-transp {
-    color: map-get($clp-colors, clp-grey-2);
+    background-color: map-get($clp-colors, clp-grey-2-transp);
 } 
 
 .clp-bg-pink {
-    color: map-get($clp-colors, clp-pink);
+    background-color: map-get($clp-colors, clp-pink);
 }
 
 .clp-bg-purple-light {
-    color: map-get($clp-colors, clp-purple-light);
+    background-color: map-get($clp-colors, clp-purple-light);
 }
 
 .clp-bg-purple {
-    color: map-get($clp-colors, clp-purple);
+    background-color: map-get($clp-colors, clp-purple);
 }
 
 .clp-bg-purple-2 {
-    color: map-get($clp-colors, clp-purple-2);
+    background-color: map-get($clp-colors, clp-purple-2);
 }

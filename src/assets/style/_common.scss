@@ -1,4 +1,4 @@
-@import "variables"; 
+@import "variables";
 @import "mixins";
 
 * {
@@ -14,10 +14,25 @@ body {
         background-repeat: no-repeat;
         background-position: center top;
     }
-    
-    
     background-color: yellow;
 }
 
+.clp-btn {
+    background-color: map-get($clp-colors, clp-purple);
+    width: 234px;
+    height: 60px;
+    color: map-get($clp-colors, clp-white);
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    outline: inherit;
+}
+
+.clp-menu {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 

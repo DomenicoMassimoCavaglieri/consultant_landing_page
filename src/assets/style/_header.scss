@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+
+#header {
+    background-color: rgba(255, 0, 0, 0.212);
+    @include clp-flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 245px;
+    height: 200px;
+    #logo__container {
+        @include clp-flex;
+        align-items: center;
+        width: 219px;
+        @include clp-txt($font-roboto,22px,400,map-get($clp-colors,clp-black-light));
+    }
+    #main-menu {
+        width: 440px;
+        @include clp-txt($font-poppins,18px,500,map-get($clp-colors,clp-black-light-2));
+    }
+    @include mq-min-width(map-get($breakpoints, xs)) {
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+    }
+    @include mq-min-width(map-get($breakpoints, 2xl)) {
+        width: 1600px;
+        height: 116px;
+    }
+}
