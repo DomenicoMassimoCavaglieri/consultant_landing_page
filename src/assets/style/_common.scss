@@ -1,0 +1,23 @@
+@import "variables"; 
+@import "mixins";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    min-height: 737px;
+    @include mq-min-width(map-get($breakpoints, xs)) {
+        background-image: url(../images/body-bg.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+    
+    
+    background-color: yellow;
+}
+
+
+

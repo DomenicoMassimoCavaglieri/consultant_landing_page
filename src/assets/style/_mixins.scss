@@ -1,0 +1,12 @@
+@import "variables";
+
+@mixin clp-default-size() {
+    position: relative;
+    width: map-get($clp-widths, full);
+}
+
+@mixin mq-min-width($width) {
+    @media all and (min-width: $width) {
+        @content;
+    }
+}

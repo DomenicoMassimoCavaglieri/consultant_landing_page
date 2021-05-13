@@ -1,0 +1,70 @@
+ @import "./variables";
+
+/* Text colors */
+
+.clp-c-black-dark {
+    color: map-get($clp-colors, clp-black-dark);
+}
+
+.clp-c-black-light {
+    color: map-get($clp-colors, clp-black-light);
+}
+
+.clp-c-black-green {
+    color: map-get($clp-colors, clp-black-green);
+}
+
+.clp-c-white-dark {
+    color: map-get($clp-colors, clp-white-dark);
+}    
+
+.clp-c-white {
+    color: map-get($clp-colors, clp-white);
+}    
+
+.clp-c-grey-dark {
+    color: map-get($clp-colors, clp-grey-dark);
+}
+
+.clp-c-grey-light {
+    color: map-get($clp-colors, clp-grey-light);
+}
+
+.clp-c-grey {
+    color: map-get($clp-colors, clp-grey);
+}    
+
+.clp-c-grey-2 {
+    color: map-get($clp-colors, clp-grey-2);
+}    
+
+.clp-c-red {
+    color: map-get($clp-colors, clp-red);
+}
+
+
+/* Background color */
+
+.clp-bg-transparent {
+    color: map-get($clp-colors, clp-transparent);
+}
+
+.clp-bg-grey-2-transp {
+    color: map-get($clp-colors, clp-grey-2);
+} 
+
+.clp-bg-pink {
+    color: map-get($clp-colors, clp-pink);
+}
+
+.clp-bg-purple-light {
+    color: map-get($clp-colors, clp-purple-light);
+}
+
+.clp-bg-purple {
+    color: map-get($clp-colors, clp-purple);
+}
+
+.clp-bg-purple-2 {
+    color: map-get($clp-colors, clp-purple-2);
+}
