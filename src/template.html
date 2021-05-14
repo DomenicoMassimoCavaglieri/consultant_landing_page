@@ -9,7 +9,7 @@
 <body>
     <header id="header" class="clp-bg-grey-2-transp">
         <logo id="logo__container">
-            <div id="logo">
+            <div class="logo">
                 <img src="./assets/images/logo.svg" alt="Logo Dream Maker">
             </div>
             <p id="logo-name">Dreammaker</p>
@@ -18,7 +18,7 @@
             <span>Home</span><span>About us</span><span>Service</span><span>Setting</span>
         </nav>
         <button class="clp-btn">Contact us</button>
-        <div id="mobile-menu"></div>
+        <div id="mobile-menu-btn-closed"></div>
     </header>
     <main>
         <section id="services__container">
@@ -28,6 +28,14 @@
     <footer>
 
     </footer>
+    <div id="mobile-menu-overlay" class="hidden">
+        <div id="mobile-menu__container">
+            <nav id="mobile-menu" class="clp-menu">
+                <p>Home</p><p>About us</p><p>Service</p><p>Setting</p><p>Contact us</p>
+            </nav>
+            <div id="mobile-menu-btn-open"></div>
+        </div>
+    </div>
     
     
 </body>

@@ -1,6 +1,28 @@
 @import "variables";
 @import "mixins";
 
+.logo {
+    @include clp-size(60px, 60px);
+    &::hover {
+        cursor: pointer;
+    }
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        @include clp-size(68px, 68px);
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+        @include clp-size(72px, 72px);
+    }
+    img {
+        @include clp-size(60px, 60px);
+        @include mq-min-width(map-get($breakpoints, lg)) {
+            @include clp-size(68px, 68px);
+        }
+        @include mq-min-width(map-get($breakpoints, xl)) {
+            @include clp-size(72px, 72px);
+        }
+    }
+}
+
 #header {
     background-color: rgba(255, 0, 0, 0.212);
     @include clp-flex(row, space-between, center);
@@ -33,29 +55,6 @@
         @include mq-min-width(map-get($breakpoints, xl)) {
             @include clp-size(225px, auto);
         }
-
-        #logo {
-            @include clp-size(60px, 60px);
-            &::hover {
-                cursor: pointer;
-            }
-            @include mq-min-width(map-get($breakpoints, lg)) {
-                @include clp-size(68px, 68px);
-            }
-            @include mq-min-width(map-get($breakpoints, xl)) {
-                @include clp-size(72px, 72px);
-            }
-            img {
-                @include clp-size(60px, 60px);
-                @include mq-min-width(map-get($breakpoints, lg)) {
-                    @include clp-size(68px, 68px);
-                }
-                @include mq-min-width(map-get($breakpoints, xl)) {
-                    @include clp-size(72px, 72px);
-                }
-            }
-        }
-
         #logo-name {
             font-size: 24px;
             &::hover {
@@ -105,7 +104,7 @@
         }
     }
 
-    #mobile-menu {
+    #mobile-menu-btn-closed {
         background-image: url(../images/icon-menu.png);
         background-size: cover;
         @include clp-size(40px, 40px);
@@ -116,6 +115,55 @@
         }
         @include mq-min-width(map-get($breakpoints, md)) {
             display: none;
+        }
+    }
+}
+
+#mobile-menu-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    @include clp-size(100%, 100vh);
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s linear;
+    @include mq-min-width(map-get($breakpoints, md)) {
+        display: none;
+    }
+
+    #mobile-menu__container {
+        @include clp-flex(row, flex-end, flex-start);
+        @include clp-size(auto, 300px);
+        padding-right:20px;
+
+        #mobile-menu {
+            background-color: $clp-grey-2-transp;
+            @include clp-txt($font-poppins, 25px, 500, $clp-white);
+            text-align: center;
+            line-height: 50px;
+            margin-top: 10px;
+            border-radius: 15px;
+            p:hover {
+                background-color: $clp-grey-2-transp;
+                cursor: pointer;
+                transition: all 0.2s linear;
+            }
+            p {
+                padding: 0 10px;
+            }
+        }
+
+        #mobile-menu-btn-open {
+            background-image: url(../images/icon-menu-open.png);
+            background-size: cover;
+            background-color: $clp-grey;
+            border-radius: 2px;
+            @include clp-size(40px, 40px);
+            margin-top: 7px;
+            &:hover {  
+                cursor: pointer;
+            }
         }
     }
 }
