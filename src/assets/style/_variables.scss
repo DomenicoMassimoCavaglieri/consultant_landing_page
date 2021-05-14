@@ -1,24 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=PT+Serif&family=Poppins:wght@300;400;500;600&family=Rammetto+One&family=Roboto&family=Rubik:wght@700&display=swap");
 
-$clp-colors: (
-    clp-transparent: transparent,
-    clp-black-dark: #402b2b,
-    clp-black-light: #505050,
-    clp-black-light-2: #717784,
-    clp-black-green: #626780,
-    clp-white-dark: #e5e5e5,
-    clp-white: #ffffff,
-    clp-grey-dark: #696a86,
-    clp-grey-light: #9d9d9d,
-    clp-grey: #c8c8c8,
-    clp-grey-2: #c4c4c4,
-    clp-grey-2-transp: #c4c4c41c,
-    clp-purple: #9b9bca,
-    clp-purple-2: #9595c9,
-    clp-purple-light: #f5f5ff,
-    clp-red: #f01f35,
-    clp-pink: #ffedef,
-);
+$clp-transparent: transparent;
+$clp-black-dark: #402b2b;
+$clp-black-light: #505050;
+$clp-black-light-2: #717784;
+$clp-black-green: #626780;
+$clp-white-dark: #e5e5e5;
+$clp-white: #ffffff;
+$clp-grey-dark: #696a86;
+$clp-grey-light: #9d9d9d;
+$clp-grey: #c8c8c8;
+$clp-grey-2: #c4c4c4;
+$clp-grey-2-transp: #c4c4c41c;
+$clp-purple: #9b9bca;
+$clp-purple-2: #9595c9;
+$clp-purple-light: #f5f5ff;
+$clp-red: #f01f35;
+$clp-pink: #ffedef;
 
 $font-rammetto: "Rammetto One", cursive;
 $font-dm: "DM Serif Display", serif;
@@ -33,7 +31,7 @@ $breakpoints: (
     md: 992px,
     lg: 1200px,
     xl: 1440px,
-    2xl: 1600px
+    2xl: 1600px,
 );
 
 $clp-default-transition: all 0.3s linear;
