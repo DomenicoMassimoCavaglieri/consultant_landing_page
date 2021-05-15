@@ -1,0 +1,19 @@
+.none {
+    display: none;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: all .6s linear;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s linear;
+}
+
+.transition {
+    transition: all .3s linear;
+}

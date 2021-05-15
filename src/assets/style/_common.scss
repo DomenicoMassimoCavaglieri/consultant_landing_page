@@ -9,31 +9,40 @@
 body {
     min-height: 737px;
     min-width: 320px;
+    background-color: $clp-white-dark;
     @include mq-min-width(map-get($breakpoints, xs)) {
         background-image: url(../images/body-bg.jpg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center top;
     }
-    background-color: yellow;
+    @include mq-min-width(map-get($breakpoints, 2xl)) {
+        background-size: 1600px auto;
+    }
 }
 
-.none {
-    display: none;
+.logo {
+    background-image: url(../images/logo.svg);
+    background-size: contain;
+    @include size(60px, 60px);
+    &::hover {
+        cursor: pointer;
+    }
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        @include size(68px, 68px);
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+        @include size(72px, 72px);
+    }
 }
 
-.visible {
-    visibility: visible;
-    opacity: 1;
-    transition: all .6s linear;
-}
-
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: all .6s linear;
-}
-
-.transition {
-    transition: all .3s linear;
+.clp-btn {
+    @include clp-btn;
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        @include size(190px, 50px);
+        font-size: 18px;
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+        @include size(234px, 60px);
+    }
 }
