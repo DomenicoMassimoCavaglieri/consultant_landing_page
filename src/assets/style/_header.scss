@@ -2,30 +2,25 @@
 @import "mixins";
 
 .logo {
-    @include clp-size(60px, 60px);
+    background-image: url(../images/logo.svg);
+    background-size: contain;
+
+    @include size(60px, 60px);
     &::hover {
         cursor: pointer;
     }
     @include mq-min-width(map-get($breakpoints, lg)) {
-        @include clp-size(68px, 68px);
+        @include size(68px, 68px);
     }
     @include mq-min-width(map-get($breakpoints, xl)) {
-        @include clp-size(72px, 72px);
+        @include size(72px, 72px);
     }
-    img {
-        @include clp-size(60px, 60px);
-        @include mq-min-width(map-get($breakpoints, lg)) {
-            @include clp-size(68px, 68px);
-        }
-        @include mq-min-width(map-get($breakpoints, xl)) {
-            @include clp-size(72px, 72px);
-        }
-    }
+    
 }
 
 #header {
     background-color: rgba(255, 0, 0, 0.212);
-    @include clp-flex(row, space-between, center);
+    @include flex(row, space-between, center);
     margin: 0 auto;
     height: 130px;
     padding: 0 20px 0 11%;
@@ -44,16 +39,16 @@
         padding: 0 15% 0 15%;
     }
     @include mq-min-width(map-get($breakpoints, 2xl)) {
-        @include clp-size(1600px, 116px);
+        @include size(1600px, 116px);
         padding: 0 245px;
     }
 
     #logo__container {
-        @include clp-flex(row, space-between, center);
-        @include clp-size(210px, 100%);
-        @include clp-txt($font-roboto, 22px, 400, $clp-black-light);
+        @include flex(row, space-between, center);
+        @include size(210px, 100%);
+        @include text($font-roboto, 22px, 400, $clp-black-light);
         @include mq-min-width(map-get($breakpoints, xl)) {
-            @include clp-size(225px, auto);
+            @include size(225px, auto);
         }
         #logo-name {
             font-size: 24px;
@@ -69,8 +64,8 @@
     #main-menu {
         display: none;
         @include mq-min-width(map-get($breakpoints, md)) {
-            @include clp-flex(row, space-between, center);
-            @include clp-txt($font-poppins, 16px, 500, $clp-black-light-2);
+            @include flex(row, space-between, center);
+            @include text($font-poppins, 16px, 500, $clp-black-light-2);
             width: 40%;
             span:hover {
                 cursor: pointer;
@@ -92,22 +87,22 @@
         @include mq-min-width(map-get($breakpoints, md)) {
             display: block;
             @include clp-btn;
-            @include clp-size(150px, 40px);
-            @include clp-txt($font-poppins, 14px, 600, $clp-white);
+            @include size(150px, 40px);
+            @include text($font-poppins, 14px, 600, $clp-white);
         }
         @include mq-min-width(map-get($breakpoints, lg)) {
-            @include clp-size(190px, 50px);
-            @include clp-txt($font-poppins, 18px, 600, $clp-white);
+            @include size(190px, 50px);
+            @include text($font-poppins, 18px, 600, $clp-white);
         }
         @include mq-min-width(map-get($breakpoints, xl)) {
-            @include clp-size(234px, 60px);
+            @include size(234px, 60px);
         }
     }
 
     #mobile-menu-btn-closed {
         background-image: url(../images/icon-menu.png);
         background-size: cover;
-        @include clp-size(40px, 40px);
+        @include size(40px, 40px);
         align-self: baseline;
         margin-top: 7px;
         &:hover {
@@ -124,7 +119,7 @@
     position: fixed;
     display: flex;
     justify-content: flex-end;
-    @include clp-size(100%, 100vh);
+    @include size(100%, 100vh);
     bottom: 0;
     left: 0;
     transition: all 0.3s linear;
@@ -133,13 +128,13 @@
     }
 
     #mobile-menu__container {
-        @include clp-flex(row, flex-end, flex-start);
-        @include clp-size(auto, 300px);
+        @include flex(row, flex-end, flex-start);
+        @include size(auto, 300px);
         padding-right:20px;
 
         #mobile-menu {
             background-color: $clp-grey-2-transp;
-            @include clp-txt($font-poppins, 25px, 500, $clp-white);
+            @include text($font-poppins, 25px, 500, $clp-white);
             text-align: center;
             line-height: 50px;
             margin-top: 10px;
@@ -159,7 +154,7 @@
             background-size: cover;
             background-color: $clp-grey;
             border-radius: 2px;
-            @include clp-size(40px, 40px);
+            @include size(40px, 40px);
             margin-top: 7px;
             &:hover {  
                 cursor: pointer;
