@@ -1,27 +1,10 @@
 @import "variables";
 @import "mixins";
 
-.logo {
-    background-image: url(../images/logo.svg);
-    background-size: contain;
-
-    @include size(60px, 60px);
-    &::hover {
-        cursor: pointer;
-    }
-    @include mq-min-width(map-get($breakpoints, lg)) {
-        @include size(68px, 68px);
-    }
-    @include mq-min-width(map-get($breakpoints, xl)) {
-        @include size(72px, 72px);
-    }
-    
-}
-
 #header {
-    background-color: rgba(255, 0, 0, 0.212);
+    background-color: $clp-grey-2-transp;
     @include flex(row, space-between, center);
-    margin: 0 auto;
+    @include clp-section-default;
     height: 130px;
     padding: 0 20px 0 11%;
     @include mq-min-width(map-get($breakpoints, xs)) {
@@ -36,10 +19,10 @@
     }
     @include mq-min-width(map-get($breakpoints, xl)) {
         height: 116px;
-        padding: 0 15% 0 15%;
+        padding: 0 15%;
     }
     @include mq-min-width(map-get($breakpoints, 2xl)) {
-        @include size(1600px, 116px);
+        //@include size(1600px, 116px);
         padding: 0 245px;
     }
 
@@ -86,16 +69,6 @@
         display: none;
         @include mq-min-width(map-get($breakpoints, md)) {
             display: block;
-            @include clp-btn;
-            @include size(150px, 40px);
-            @include text($font-poppins, 14px, 600, $clp-white);
-        }
-        @include mq-min-width(map-get($breakpoints, lg)) {
-            @include size(190px, 50px);
-            @include text($font-poppins, 18px, 600, $clp-white);
-        }
-        @include mq-min-width(map-get($breakpoints, xl)) {
-            @include size(234px, 60px);
         }
     }
 

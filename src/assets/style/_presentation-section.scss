@@ -1,0 +1,88 @@
+@import "variables";
+@import "mixins";
+
+#presentation {
+    position: relative;
+    @include clp-section-default;
+    padding: 0 7%;
+    @include mq-min-width(map-get($breakpoints, xs)) {
+        padding: {
+            top: 16px;
+            left: 15%;
+            right: 0;
+        }
+    }
+    @include mq-min-width(map-get($breakpoints, sm)) {
+        padding-top: 38px;
+    }
+    @include mq-min-width(880px) {
+            padding-top: 10px;
+    }
+    @include mq-min-width(map-get($breakpoints, md)) {
+        padding-top: 40px;
+    }
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        padding-top: 90px;
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+        padding-top: 160px;
+    }
+    @include mq-min-width(map-get($breakpoints, 2xl)) {
+        padding: {
+            top: 190px;
+            left: 245px;
+        }
+    }
+
+    h1 {
+        @include text($font-dm, 38px, 400, $clp-grey-dark);
+        line-height: 38px;
+        width: 300px;
+        @include mq-min-width(map-get($breakpoints, sm)) {
+            width: 400px;
+            font-size: 46px;
+            line-height: 46px;
+        }
+        @include mq-min-width(880px) {
+            width: 450px;
+        }
+        @include mq-min-width(map-get($breakpoints, md)) {
+            width: 548px;
+        }
+        @include mq-min-width(map-get($breakpoints, lg)) {
+            font-size: 56px;
+            line-height: 56px;
+        }
+    }
+
+    p {
+        max-width: 420px;
+        margin: {
+            top: 30px;
+            bottom: 30px;
+        }
+        @include text($font-poppins, 18px, 400, $clp-grey-dark);
+        line-height: 27px;
+        @include mq-min-width(map-get($breakpoints, xs)) {
+            width: 420px;
+            margin-top: 110px;
+        }
+        @include mq-min-width(672px) {
+            width: 550px;
+            margin-top: 160px;
+        }
+        @include mq-min-width(map-get($breakpoints, sm)) {
+            margin-bottom: 25px;
+        }
+        @include mq-min-width(880px) {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        @include mq-min-width(map-get($breakpoints, md)) {
+            margin-top: 30px;
+        }
+        @include mq-min-width(map-get($breakpoints, 2xl)) {
+            width: 760px;
+        }
+    }
+}
