@@ -1,7 +1,7 @@
 @import "variables";
 
 
-@mixin clp-flex($direction,$justify,$align) {
+@mixin flex($direction,$justify,$align) {
     position: relative;
     display: flex;
     flex-direction: $direction;
@@ -9,14 +9,9 @@
     align-items: $align;
 } 
 
-@mixin clp-flex-wrap($wrap,$content) {
+@mixin flex-wrap($wrap,$content) {
     flex-wrap: $wrap;
     align-content: $content;
-}
-
-@mixin clp-default-size() {
-    position: relative;
-    width: map-get($clp-widths, full);
 }
 
 @mixin mq-min-width($width) {
@@ -25,16 +20,21 @@
     }
 }
 
-@mixin clp-txt($family,$size,$weight,$color) {
+@mixin text($family,$size,$weight,$color) {
     font-family: $family;
     font-size: $size;
     font-weight: $weight;
     color: $color;
 }
 
-@mixin clp-size($width,$height) {
+@mixin size($width,$height) {
     width: $width;
     height: $height;
+}
+
+@mixin image-set {
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 @mixin clp-btn {
@@ -45,3 +45,4 @@
     outline: inherit;
     cursor: pointer;
 }
+
