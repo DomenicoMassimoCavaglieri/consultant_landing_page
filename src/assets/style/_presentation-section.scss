@@ -2,7 +2,6 @@
 @import "mixins";
 
 #presentation {
-    position: relative;
     @include clp-section-default;
     padding: 0 7%;
     @include mq-min-width(map-get($breakpoints, xs)) {

@@ -2,7 +2,6 @@
 
 
 @mixin flex($direction,$justify,$align) {
-    position: relative;
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
@@ -38,6 +37,7 @@
 }
 
 @mixin clp-section-default {
+    position: relative;
     max-width: 1600px;
     margin: 0 auto;
 }
