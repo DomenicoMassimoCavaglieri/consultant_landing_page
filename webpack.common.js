@@ -19,6 +19,10 @@ module.exports = {
                 type: 'asset/resource'
             },
             {
+                test: /\.(mp4)$/,
+                type: 'asset/resource'
+            },
+            {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
