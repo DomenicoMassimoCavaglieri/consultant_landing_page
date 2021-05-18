@@ -1,3 +1,5 @@
+@import "./variables";
+
 .none {
     display: none;
 }
@@ -11,9 +13,9 @@
 .hidden {
     visibility: hidden;
     opacity: 0;
-    transition: all .6s linear;
+    transition: $clp-default-transition;
 }
 
 .transition {
-    transition: all .3s linear;
+    transition: $clp-default-transition;
 }

@@ -1,0 +1,8 @@
+@import "variables";
+@import "mixins";
+
+#questions {
+    @include clp-section-default;
+    height: 400px;
+    background-color: red;
+}
