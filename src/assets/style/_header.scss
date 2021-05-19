@@ -5,11 +5,11 @@
     background-color: $clp-grey-2-transp;
     @include flex(row, space-between, center);
     @include clp-section-default;
-    height: 130px;
-    padding: 0 20px 0 11%;
+    height: 140px;
+    padding: 0 7%;
     @include mq-min-width(map-get($breakpoints, xs)) {
         height: 90px;
-        padding: 0 20px 0 15%;
+        padding: 0 7% 0 15%;
     }
     @include mq-min-width(map-get($breakpoints, md)) {
         padding: 0 13% 0 15%;
@@ -22,14 +22,16 @@
         padding: 0 15%;
     }
     @include mq-min-width(map-get($breakpoints, 2xl)) {
-        //@include size(1600px, 116px);
         padding: 0 245px;
     }
 
     #logo__container {
         @include flex(row, space-between, center);
-        @include size(210px, 100%);
+        @include size(220px, 100%);
         @include text($font-roboto, 22px, 400, $clp-black-light);
+        @include mq-min-width(map-get($breakpoints, xs)) {
+            @include size(210px, 100%);
+        }
         @include mq-min-width(map-get($breakpoints, xl)) {
             @include size(225px, auto);
         }
@@ -37,6 +39,9 @@
             font-size: 24px;
             &::hover {
                 cursor: pointer;
+            }
+            @include mq-min-width(map-get($breakpoints, xl)) {
+                font-size: 24px;
             }
             @include mq-min-width(map-get($breakpoints, xl)) {
                 font-size: 24px;
@@ -103,11 +108,10 @@
         display: none;
     }
 
-
     #mobile-menu__container {
         @include flex(row, flex-end, flex-start);
         @include size(auto, 300px);
-        padding-right:20px;
+        padding-right: 7%;
 
         #mobile-menu {
             background-color: $clp-grey-2-transp;
@@ -133,7 +137,7 @@
             border-radius: 2px;
             @include size(40px, 40px);
             margin-top: 7px;
-            &:hover {  
+            &:hover {
                 cursor: pointer;
             }
         }
