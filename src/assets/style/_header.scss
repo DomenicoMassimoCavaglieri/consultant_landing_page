@@ -114,14 +114,15 @@
         padding-right: 7%;
 
         #mobile-menu {
-            background-color: $clp-grey-2-transp;
+            background-color: $clp-black-transp;
             @include text($font-poppins, 25px, 500, $clp-white);
             text-align: center;
             line-height: 50px;
             margin-top: 10px;
             border-radius: 15px;
             p:hover {
-                background-color: $clp-grey-2-transp;
+                background-color: $clp-purple-transp;
+                border-radius: 15px;
                 cursor: pointer;
                 transition: all 0.2s linear;
             }
