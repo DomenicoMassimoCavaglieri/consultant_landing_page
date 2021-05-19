@@ -37,10 +37,13 @@
         @include text($font-dm, 38px, 400, $clp-grey-dark);
         line-height: 38px;
         width: 300px;
+        text-align: center;
+        line-height: 44px;
         @include mq-min-width(map-get($breakpoints, sm)) {
             width: 400px;
             font-size: 46px;
             line-height: 46px;
+            text-align: left;
         }
         @include mq-min-width(880px) {
             width: 450px;
