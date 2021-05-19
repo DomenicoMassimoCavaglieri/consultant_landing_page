@@ -90,15 +90,19 @@
 #mobile-menu-overlay {
     background-color: rgba(0, 0, 0, 0.75);
     position: fixed;
+    overscroll-behavior: contain;
     display: flex;
     justify-content: flex-end;
-    @include size(100%, 100vh);
-    bottom: 0;
+    @include size(100%, 100%);
+    top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     transition: all 0.3s linear;
     @include mq-min-width(map-get($breakpoints, md)) {
         display: none;
     }
+
 
     #mobile-menu__container {
         @include flex(row, flex-end, flex-start);
@@ -134,4 +138,8 @@
             }
         }
     }
+}
+
+.mobile-menu-noscroll {
+    position: fixed;
 }
