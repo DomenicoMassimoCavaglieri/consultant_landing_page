@@ -5,7 +5,7 @@
     background-color: $clp-grey-2-transp;
     @include flex(row, space-between, center);
     @include clp-section-default;
-    height: 140px;
+    height: 100px;
     padding: 0 7%;
     @include mq-min-width(map-get($breakpoints, xs)) {
         height: 90px;
@@ -25,7 +25,7 @@
         padding: 0 245px;
     }
 
-    #logo__container {
+    #logo__wrapper {
         @include flex(row, space-between, center);
         @include size(220px, 100%);
         @include text($font-roboto, 22px, 400, $clp-black-light);
@@ -108,7 +108,7 @@
         display: none;
     }
 
-    #mobile-menu__container {
+    #mobile-menu__wrapper {
         @include flex(row, flex-end, flex-start);
         @include size(auto, 300px);
         padding-right: 7%;
