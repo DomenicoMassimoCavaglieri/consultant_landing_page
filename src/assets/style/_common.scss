@@ -21,6 +21,13 @@ body {
     }
 }
 
+a:link,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
+}
+
 .logo {
     background-image: url(../images/logo.svg);
     background-size: contain;

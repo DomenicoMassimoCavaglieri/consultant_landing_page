@@ -112,7 +112,7 @@
         @include flex(row, flex-end, flex-start);
         @include size(auto, 300px);
         padding-right: 7%;
-
+        transition: all 0.6s linear;
         #mobile-menu {
             background-color: $clp-black-transp;
             @include text($font-poppins, 25px, 500, $clp-white);
@@ -145,6 +145,8 @@
     }
 }
 
+/*This class is applied to the body to prevent it 
+from scrolling under the nodal*/
 .mobile-menu-noscroll {
     position: fixed;
 }
