@@ -85,8 +85,8 @@
         @include mq-min-width(map-get($breakpoints,2xl)) {
             padding: 0;
             margin: {
-                top: 138px;
-                bottom: 192px;
+                top: 120px;
+                bottom: 150px;
             }
         }
         .services__cards {
@@ -96,20 +96,26 @@
             border: solid 1.1px $clp-transparent;
             border-bottom: solid 5px $clp-transparent;
             border-radius: 5px;
+            padding: 0 5px 5px 5px;
             &:hover {
                 cursor: pointer;
                 border-color: $clp-grey-light;
             }
             @include mq-min-width(map-get($breakpoints,xs)) {
-            margin-bottom: 40px;
+                
+                margin-bottom: 40px;
+            
+            }
+            @include mq-min-width(map-get($breakpoints,sm)) {
+                margin-bottom: 40px;
             }
             @include mq-min-width(map-get($breakpoints,md)) {
                 @include size(261px,250px);
-                font-size: 18px;
                 margin: {
                     top:30px;
                     left: 20px;
                     right: 20px;
+                    bottom: 0;
                 }
             }    
             @include mq-min-width(map-get($breakpoints,lg)) {
@@ -147,6 +153,12 @@
             }
             p {
                 text-align: center;
+                @include mq-min-width(map-get($breakpoints,md)) {
+                    font-size: 16px;
+                    font-weight: 400px;
+                    line-height: 20px;
+                    
+                }
             }
             .services__cards-title {
                 font-size: 20px;

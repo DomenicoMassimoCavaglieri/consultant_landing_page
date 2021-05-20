@@ -15,17 +15,19 @@
     }
     p {
         @include text($font-pt,32px,400,$clp-black-green);
+        text-align: center;
         line-height: 38px;
-        max-width: 320px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         padding: {
-            left: 7%;
-            right: 7%;
+            left: 15%;
+            right: 15%;
         }
         @include mq-min-width(map-get($breakpoints,xs)) {
+            text-align: left;
             font-size: 36px;
             line-height: 40px;
             max-width: 480px;
+            margin-bottom: 50px;
             padding: {
                 left: 15%;
                 right: 0;
@@ -126,6 +128,6 @@
 
 .icon-stop {
     background-image: url(../images/video-icon-stop.svg);
-    left: 0;
+    left: 2%;
     transition: $clp-default-transition;
 }
