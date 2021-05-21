@@ -3,6 +3,109 @@
 
 #questions {
     @include clp-section-default;
-    height: 400px;
-    background-color: red;
+    background-image: url(../images/questions-bg-circle.svg);
+    background-size: 800px 1030px;
+    background-repeat: no-repeat;
+    background-position: 800px top;
+    margin-top: 30px;
+    height: 2000px;
+    @include mq-min-width(map-get($breakpoints, xs)) {
+        padding: 0 15%;
+    }
+    @include mq-min-width(map-get($breakpoints, 2xl)) {
+        padding: 0 200px 0 245px;
+    }
+    #questions-wrapper {
+        @include flex(row, space-between, start);
+        @include flex-wrap(wrap, start);
+        border: solid 1px;
+        height: 1185px;
+        #first-question {
+            position: relative;
+            @include size(50%, 700px);
+            margin-bottom: 70px;
+            .questions-title {
+                background-color: rgba(172, 255, 47, 0.349);
+                @include size(100%, 450px);
+                @include text($font-pt, 32px, 400, $clp-black-green);
+                padding-top: 190px;
+                @include mq-min-width(880px) {
+                    font-size: 48px;
+                    line-height: 67px;
+                }
+            }
+        }
+        #bg-man {
+            background-color: rgba(205, 92, 92, 0.452);
+            position: relative;
+            background-image: url(../images/questions-bg-2.svg);
+            background-size: auto;
+            background-repeat: no-repeat;
+            
+            @include size(50%, 830px);
+            @include mq-min-width(map-get($breakpoints,2xl)) {
+                background-position: 0 80px;
+            }
+            @include mq-min-width(map-get($breakpoints,2xl)) {
+                background-position: -30px 80px;
+            }
+        }
+        #q-and-a-wrapper {
+        }
+    }
+    #questions-button {
+        @include size(550px, 90px);
+        margin: 0 auto;
+    }
+}
+
+.single-q-and-a-wrapper {
+    width: 550px;
+    //min-height: 250px;
+    background: $clp-purple-light;
+    box-shadow: 0px 25px 59px rgba(191, 191, 236, 0.72);
+    border: solid 1px $clp-purple-3;
+    border-radius: 23px;
+    @include text($font-poppins, 18px, 300, $clp-black-dark);
+    .question-wrapper {
+        @include flex(row, space-between, center);
+        width: 550px;
+        min-height: 90px;
+        background-color: $clp-white;
+        padding: {
+            left: 35px;
+            right: 35px;
+        }
+        border: solid 1px $clp-purple-3;
+        box-shadow: 0px 5px 10px #e0e0e0;
+        border-radius: 23px;
+
+        .question-text {
+            font-weight: 400;
+        }
+        .answer-arrow {
+            @include size(24px, 24px);
+            background-image: url(../images/questions-icon-closed.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all .4s ease-out;
+        }
+    }
+    .answer-text {
+        height: 0;
+        overflow: hidden;
+
+        margin: {
+            left: 35px;
+            right: 35px;
+        }
+        transition: all .4s ease-out;
+    }
+}
+
+.show-answer {
+    margin: {
+        top: 35px;
+        bottom: 35px;
+    } 
 }
