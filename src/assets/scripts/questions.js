@@ -4,52 +4,68 @@ class QuestionsAnswers {
         this.Answer = a;
     };
     printQA() {
-        console.log(`Question: ${this.Question} Answer: ${this.Answer}`);
     }
 }
 let singleQuestion = new QuestionsAnswers("Come ti chiami?", "Giovanni");
 
-console.log(singleQuestion);
 singleQuestion.printQA();
 
-
-
-showAnswerArrow();
-function showAnswerArrow() {
-    for (let arrow of getAnswerArrow()) {
-        arrow.onclick = (event) => {
-            let answer = event.target.parentNode.nextElementSibling;
-            let answerHeight = answer.scrollHeight;
-            if (!answer.classList.contains("show-answer")) {
-                answer.classList.add("show-answer");
-                answer.style.height = `${answerHeight}px`;
-                arrow.style.transform = `rotate(90deg)`
-            } else {
-                answer.classList.remove("show-answer");
-                answer.style.height = `0`;
-                arrow.style.transform = `rotate(0)`
-            }
-        }
+function answertoggle(event) {
+    let arrow = event.target;
+    let answer = event.target.parentNode.nextElementSibling;
+    let answerHeight = answer.scrollHeight;
+    if (!answer.classList.contains("visible-answer")) {
+        answer.classList.add("visible-answer");
+        answer.style.height = `${answerHeight}px`;
+        arrow.style.transform = `rotate(90deg)`
+    } else {
+        answer.classList.remove("visible-answer");
+        answer.style.height = `0`;
+        arrow.style.transform = `rotate(0)`
     }
 }
 
-function showAnswerLabel() {
-    for (wrapper of getQuestionWrapper()) {
-        wrapper.onclick = (event) => {
-            console.log(event.target);
-        }
-    }
+getLoadQAndABtn().onclick = (event) => {
+    createOneQAndABlock("Question 1", "Answer 1");
+}
+
+function getLoadQAndABtn() {
+    return document.querySelector("#load-q-and-a-btn");
 }
 
 function getAnswerArrow() {
     return document.querySelectorAll(".answer-arrow");
 }
 
-function getQuestionWrapper() {
-    return document.querySelectorAll(".question-wrapper");
-}
 
 function getSingleQAndAWrapper() {
-    return document.querySelectorAll(".single-q-and-a-wrapper");
+    return document.querySelectorAll(".single-question");
 }
 
+function createOneQAndABlock(question, answer) {
+    let qAndAWrapper = document.createElement("div");
+    qAndAWrapper.classList.add("single-question");
+    let questionWrapper = document.createElement("div");
+    questionWrapper.classList.add("question-wrapper");
+    let questionText = document.createElement("p");
+    questionText.classList.add("question-text");
+    questionText.innerHTML = question;
+
+    let answerArrow = document.createElement("div");
+    answerArrow.classList.add("answer-arrow");
+    answerArrow.addEventListener("click", answertoggle);
+    let answerText = document.createElement("p");
+    answerText.classList.add("answer-text");
+    answerText.innerHTML = answer;
+
+    questionWrapper.appendChild(questionText);
+    questionWrapper.appendChild(answerArrow);
+    qAndAWrapper.appendChild(questionWrapper);
+    qAndAWrapper.appendChild(answerText);
+
+    getQAndAWrapper().appendChild(qAndAWrapper);
+}
+
+function getQAndAWrapper() {
+    return document.querySelector("#questions-box-2");
+}

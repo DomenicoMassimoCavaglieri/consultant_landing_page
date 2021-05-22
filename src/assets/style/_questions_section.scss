@@ -19,8 +19,8 @@
         @include flex(row, space-between, start);
         @include flex-wrap(wrap, start);
         border: solid 1px;
-        height: 1185px;
-        #first-question {
+        height: 1460px;
+        #questions-box-1 {
             position: relative;
             @include size(50%, 700px);
             margin-bottom: 70px;
@@ -41,27 +41,44 @@
             background-image: url(../images/questions-bg-2.svg);
             background-size: auto;
             background-repeat: no-repeat;
-            
+
             @include size(50%, 830px);
-            @include mq-min-width(map-get($breakpoints,2xl)) {
+            @include mq-min-width(map-get($breakpoints, 2xl)) {
                 background-position: 0 80px;
             }
-            @include mq-min-width(map-get($breakpoints,2xl)) {
+            @include mq-min-width(map-get($breakpoints, 2xl)) {
                 background-position: -30px 80px;
             }
         }
-        #q-and-a-wrapper {
+        #questions-box-2 {
+            background-color: yellow;
+        }
+        #questions-box-3 {
+            background-color: lightgreen;
         }
     }
-    #questions-button {
+    #load-q-and-a-btn {
         @include size(550px, 90px);
         margin: 0 auto;
     }
 }
 
-.single-q-and-a-wrapper {
+.questions-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 620px;
+    overflow: hidden;
+}
+
+.single-question {
     width: 550px;
-    //min-height: 250px;
+    margin: {
+        right: 30px;
+        bottom: 12px;
+    }
     background: $clp-purple-light;
     box-shadow: 0px 25px 59px rgba(191, 191, 236, 0.72);
     border: solid 1px $clp-purple-3;
@@ -88,7 +105,7 @@
             background-image: url(../images/questions-icon-closed.svg);
             background-size: cover;
             background-repeat: no-repeat;
-            transition: all .4s ease-out;
+            transition: all 0.4s ease-out;
         }
     }
     .answer-text {
@@ -99,13 +116,13 @@
             left: 35px;
             right: 35px;
         }
-        transition: all .4s ease-out;
+        transition: all 0.4s ease-out;
     }
 }
 
-.show-answer {
+.visible-answer {
     margin: {
         top: 35px;
         bottom: 35px;
-    } 
+    }
 }

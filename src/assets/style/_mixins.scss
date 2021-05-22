@@ -52,5 +52,4 @@
     cursor: pointer;
     @include size(150px,40px);
     @include text($font-poppins, 14px, 600, $clp-white);
-    text-align: center;
 }
