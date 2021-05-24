@@ -17,7 +17,18 @@ class QuestionAndAnswer {
 let singleQuestion = new QuestionAndAnswer();
 
 
+//This loads the first question on the page
+loadQuestion();
+
+
+//The LOAD MORE button loads a question onto the page
 getLoadQuestionsBtn().onclick = () => {
+    loadQuestion();
+}
+
+
+//This loads a question on the page
+function loadQuestion() {
     singleQuestion.id = numberOfQuestion;
     singleQuestion.writeSingleQuestion(randomLoremGenMax66Words(7, 20),
         randomLoremGenMax66Words(3, 66));
@@ -29,9 +40,6 @@ getLoadQuestionsBtn().onclick = () => {
     //Global change
     numberOfQuestion++;
 }
-
-
-
 
 
 /*These functions handle the addition of the Question Block component
