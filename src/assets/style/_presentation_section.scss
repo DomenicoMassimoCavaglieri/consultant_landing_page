@@ -98,4 +98,11 @@
             width: 760px;
         }
     }
+    .clp-btn {
+        margin: auto;
+        @include mq-min-width(map-get($breakpoints, xs)) {
+            margin: initial;
+         }
+    }
+    
 }

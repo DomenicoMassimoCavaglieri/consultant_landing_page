@@ -8,9 +8,17 @@
     background-repeat: no-repeat;
     background-position: 800px top;
 
-    padding: 90px 7% 0;
+    padding: 60px 7% 0;
     @include mq-min-width(map-get($breakpoints, xs)) {
         padding: 0 15%;
+    }
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        background-position: 600px top;
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+        background-position: 800px top;
+        padding: 0 200px 0 245px;
+        margin-top: 30px;
     }
     @include mq-min-width(map-get($breakpoints, 2xl)) {
         padding: 0 200px 0 245px;
@@ -19,31 +27,80 @@
     #questions-wrapper {
         @include flex(column, space-between, start);
         width: auto;
-
-        @include mq-min-width(map-get($breakpoints, 2xl)) {
+        height: 550px;
+        @include mq-min-width(map-get($breakpoints, xs)) {
+            height: 460px;
+        }
+        @include mq-min-width(map-get($breakpoints, sm)) {
+            height: 440px;
+        }
+        @include mq-min-width(880px) {
+            height: 500px;
+        }
+        @include mq-min-width(map-get($breakpoints, md)) {
+            height: 620px;
+        }
+        @include mq-min-width(map-get($breakpoints, lg)) {
             @include flex(row, space-between, start);
+            height: auto;
+        }
+        @include mq-min-width(map-get($breakpoints, xl)) {
+            @include flex(row, space-between, start);
+            height: auto;
         }
         #questions-box-1 {
             position: relative;
             @include size(100%, auto);
+            @include mq-min-width(map-get($breakpoints, lg)) {
+                @include size(50%, auto);
+            }
+            @include mq-min-width(map-get($breakpoints, xl)) {
+                @include size(50%, auto);
+            }
             @include mq-min-width(map-get($breakpoints, 2xl)) {
                 @include size(50%, auto);
             }
             .questions-title {
                 @include size(auto, auto);
-                @include text($font-pt, 26px, 400, $clp-black-green);
+                @include text($font-pt, 32px, 400, $clp-black-green);
                 text-align: center;
                 margin-bottom: 50px;
-                @include mq-min-width(880px) {
+                @include mq-min-width(map-get($breakpoints, sm)) {
+                    font-size: 44px;
+                    line-height: 67px;
+                    text-align: left;
+                }
+                @include mq-min-width(map-get($breakpoints, md)) {
                     font-size: 48px;
                     line-height: 67px;
                     text-align: left;
+                }
+                @include mq-min-width(map-get($breakpoints, lg)) {
+                    padding: {
+                        top: 220px;
+                        bottom: 131px;
+                    }
+                    font-size: 44px;
+                    line-height: 50px;
+                    margin-bottom: 0;
+                }
+                @include mq-min-width(map-get($breakpoints, xl)) {
+                    padding: {
+                        top: 250px;
+                        bottom: 131px;
+                    }
+                    font-size: 44px;
+                    line-height: 60px;
+                    margin-bottom: 0;
                 }
                 @include mq-min-width(map-get($breakpoints, 2xl)) {
                     padding: {
                         top: 190px;
                         bottom: 131px;
                     }
+                    ont-size: 48px;
+                    line-height: 67px;
+                    text-align: left;
                     margin-bottom: 0;
                 }
             }
@@ -51,25 +108,50 @@
         #questions-box-2 {
             position: relative;
             @include size(100%, auto);
-            margin-top: 150px;
-            @include mq-min-width(map-get($breakpoints, 2xl)) {
-                background-position: 0 80px;
-            }
-            @include mq-min-width(map-get($breakpoints, 2xl)) {
+            margin-top: 0;
+            @include mq-min-width(map-get($breakpoints, lg)) {
+                
                 background-image: url(../images/questions-bg-2.svg);
-                background-size: auto;
+                background-size: 550px;
                 background-repeat: no-repeat;
-                background-position: -30px 80px;
+                background-position: -40px 120px;
+                @include size(50%, auto);
+                min-height: (830px);
+                padding-top: 680px;
+                margin-top: 0;
+            }
+            @include mq-min-width(map-get($breakpoints, xl)) {
+                
+                background-image: url(../images/questions-bg-2.svg);
+                background-size: 550px;
+                background-repeat: no-repeat;
+                background-position: 40px 210px;
                 @include size(50%, auto);
                 min-height: (830px);
                 padding-top: 770px;
-                margin-top: 0
+                margin-top: 0;
+            }
+            @include mq-min-width(map-get($breakpoints, 2xl)) {
+                background-position: 0 80px;
+                background-size: auto;
             }
         }
     }
     #loadQuestionsBtn {
         margin: 0 auto;
         margin-bottom: 40px;
+        @include mq-min-width(map-get($breakpoints, md)) {
+            @include size(50%, 90px);
+            font-size: 18px;
+        }
+        @include mq-min-width(map-get($breakpoints, lg)) {
+            @include size(100%, 90px);
+            margin-bottom: 50px;
+        }
+        @include mq-min-width(map-get($breakpoints, xl)) {
+            @include size(100%, 90px);
+            margin-bottom: 50px;
+        }
         @include mq-min-width(map-get($breakpoints, 2xl)) {
             @include size(100%, 90px);
             margin-bottom: 50px;
@@ -79,16 +161,42 @@
 
 .single-question {
     width: auto;
-    
     background: $clp-purple-light;
     box-shadow: 0px 25px 59px rgba(191, 191, 236, 0.72);
     border: solid 1px $clp-purple-3;
     border-radius: 23px;
     @include text($font-poppins, 14px, 300, $clp-black-dark);
+    @include mq-min-width(map-get($breakpoints, md)) {
+        margin: {
+            left: 50px;
+            right: 50px;
+        }
+        font-size: 18px;
+    }
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        margin: {
+            left: 0;
+            right: 30px;
+            bottom: 12px;
+        }
+        width: 400px;
+    }
+    
+  
+    @include mq-min-width(map-get($breakpoints, xl)) {
+        
+        font-size: 18px;
+        margin: {
+            left: 0;
+            right: 30px;
+            bottom: 12px;
+        }
+    }
     @include mq-min-width(map-get($breakpoints, 2xl)) {
         width: 550px;
         font-size: 18px;
         margin: {
+            left: 0;
             right: 30px;
             bottom: 12px;
         }
@@ -96,24 +204,40 @@
     .question-label {
         @include flex(row, space-between, center);
         width: auto;
-        min-height: 40px;
+        min-height: 60px;
         background-color: $clp-white;
         padding: 10px 15px;
         border: solid 1px $clp-purple-3;
         box-shadow: 0px 5px 10px #e0e0e0;
         border-radius: 23px;
+        @include mq-min-width(map-get($breakpoints, lg)) {
+            padding: 20px 35px;
+            width: 400px;
+            min-height: 90px;
+        }
+        @include mq-min-width(map-get($breakpoints, xl)) {
+            padding: 20px 35px;
+            width: 480px;
+            min-height: 90px;
+        }
         @include mq-min-width(map-get($breakpoints, 2xl)) {
             padding: 20px 35px;
             width: 550px;
             min-height: 90px;
         }
         .question-text {
-            width: 280px;
+            width: 350px;
             font-weight: 400;
-             //min-height: 90px;
-             @include mq-min-width(map-get($breakpoints, 2xl)) {
-                width: 460px;
+            @include mq-min-width(map-get($breakpoints, xs)) {
+                width: 400px;
                 min-height: 40px;
+            }
+            @include mq-min-width(map-get($breakpoints, xl)) {
+                width: 460px;
+                
+            }
+            @include mq-min-width(map-get($breakpoints, 2xl)) {
+                
             }
         }
         .answer-arrow {
@@ -127,21 +251,46 @@
     }
     .answer-text {
         height: 0;
-        max-height: 180px;
+        max-height: 100px;
         overflow: scroll;
-
         padding: {
-            left: 35px;
-            right: 35px;
+            left: 20px;
+            right: 20px;
         }
         transition: all 0.4s ease-out;
+        @include mq-min-width(map-get($breakpoints, xs)) {
+            max-height: 90px;
+        }
+        @include mq-min-width(map-get($breakpoints, sm)) {
+            max-height: 80px;
+        }
+        @include mq-min-width(map-get($breakpoints, xl)) {
+            max-height: 180px;
+            padding: {
+                left: 35px;
+                right: 35px;
+            }
+        }
+        @include mq-min-width(map-get($breakpoints, 2xl)) {
+            max-height: 180px;
+            padding: {
+                left: 35px;
+                right: 35px;
+            }
+        }
     }
 }
 
 .visible-answer {
     margin: {
-        top: 35px;
-        bottom: 35px;
+        top: 20px;
+        bottom: 20px;
+    }
+    @include mq-min-width(map-get($breakpoints, md)) {
+        margin: {
+            top: 35px;
+            bottom: 35px;
+        }
     }
 }
 

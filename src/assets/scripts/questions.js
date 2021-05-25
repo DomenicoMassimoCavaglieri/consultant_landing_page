@@ -3,7 +3,7 @@ let numberOfQuestion = 1; //Questions and answers start numbering
 let phaseAppendQuestions = 0; //Starting phase for the addition of the questions
 
 
-const mobileMedia = window.matchMedia("(max-width: 576px)");
+const mobileMedia = window.matchMedia("(max-width: 1199px)");
 mobileMedia.addListener(setAppendQuestionBasedOnDisplay);
 
 
