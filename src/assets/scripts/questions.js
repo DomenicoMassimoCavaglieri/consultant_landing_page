@@ -1,6 +1,10 @@
 import { randomLoremGenMax66Words } from "./lorem";
-let numberOfQuestion = 1;
-let phaseAppendQuestions = 1;
+let numberOfQuestion = 1; //Questions and answers start numbering
+let phaseAppendQuestions = 0; //Starting phase for the addition of the questions
+
+
+const mobileMedia = window.matchMedia("(max-width: 576px)");
+mobileMedia.addListener(setAppendQuestionBasedOnDisplay);
 
 
 class QuestionAndAnswer {
@@ -14,15 +18,16 @@ class QuestionAndAnswer {
         this.answer = `Answer ${this.id} : ${randomLoremGenMax66Words(3, 66)}`;
     }
 }
+
 let singleQuestion = new QuestionAndAnswer();
 
 
 //This loads the first question on the page
 loadQuestion();
 
-
 //The LOAD MORE button loads a question onto the page
 getLoadQuestionsBtn().onclick = () => {
+    setAppendQuestionBasedOnDisplay(mobileMedia, phaseAppendQuestions);
     loadQuestion();
 }
 
@@ -30,13 +35,15 @@ getLoadQuestionsBtn().onclick = () => {
 //This loads a question on the page
 function loadQuestion() {
     singleQuestion.id = numberOfQuestion;
-    singleQuestion.writeSingleQuestion(randomLoremGenMax66Words(7, 20),
-        randomLoremGenMax66Words(3, 66));
+    singleQuestion.writeSingleQuestion(
+        randomLoremGenMax66Words(7, 20),
+        randomLoremGenMax66Words(3, 66)
+    );
     showQuestion(
         singleQuestion.question,
         singleQuestion.answer,
         phaseAppendQuestions
-    )
+    );
     //Global change
     numberOfQuestion++;
 }
@@ -45,13 +52,16 @@ function loadQuestion() {
 /*These functions handle the addition of the Question Block component
 This section of the DOM is divided into two boxes*/
 /**
- * This manages the addition of questions by dividing it into 6 phases
+ * This manages the addition of questions by dividing it into 7 phases (7 cases)
  * @param {string} question Question text
  * @param {string} answer Answer text
  * @param {integer} counter Counter of the phases 
  */
 function showQuestion(question, answer, counter) {
     switch (counter) {
+        case 0:
+            appendFirstQuestionOnBox1(question, answer, 1)
+            break;
         case 1:
             appendQuestionsOnBox1(question, answer, 2);
             break;
@@ -70,29 +80,78 @@ function showQuestion(question, answer, counter) {
         case 6:
             appendQuestionsOnBox2(question, answer, 3);
             break;
+        case 7:
+            replaceFirstQuestionsOnBox1(question, answer, 1, mobileMedia);
     }
 
 }
 
-//This removes all questions from box-2 and adds a new one
-function resetQuestionOnBox2(question, answer, nextCase) {
-    while (getQuestionsBox2().childElementCount > 1) {
-        getQuestionsBox2().removeChild(getQuestionsBox2().lastElementChild);
-    }
-    getQuestionsBox2().appendChild(createQuestionBlock(question, answer));
-    phaseAppendQuestions = nextCase;
-}
 
-//This removes all questions from box-1 and adds a new one
-function resetQuestionOnBox1(question, answer, nextCase) {
-    while (getQuestionsBox1().childElementCount > 1) {
-        getQuestionsBox1().removeChild(getQuestionsBox1().lastElementChild);
-    }
+/**
+ * This adds first question on box1
+ * @param {string} question Question text
+ * @param {string} answer Answer text
+ * @param {integer} nextCase phase number to go to next
+ */
+function appendFirstQuestionOnBox1(question, answer, nextCase) {
     getQuestionsBox1().appendChild(createQuestionBlock(question, answer));
     phaseAppendQuestions = nextCase;
 }
 
-//This adds the questions in the box-2
+/**
+ * Media query: This changes the addition of questions based on the media query
+ * @param {boolean} mediaQuery is the mobile mediaquery respected?
+ */
+function setAppendQuestionBasedOnDisplay(mediaQuery) {
+    if (mediaQuery.matches) {
+        phaseAppendQuestions = 7;
+        removeElement(getQuestionsBox1(), 2);
+        removeElement(getQuestionsBox2(), 1);
+    }
+}
+
+
+/**
+ * This replaces the first question in the box-1, removing the remaining ones in box-1 e box-2
+ * @param {string} question Question text
+ * @param {string} answer Answer text
+ * @param {integer} nextCase phase number to go to next
+ * @param {boolean} mediaQuery is the mobile mediaquery respected?
+ */
+function replaceFirstQuestionsOnBox1(question, answer, nextCase, mediaQuery) {
+    if (mediaQuery.matches) {
+        getQuestionsBox1().replaceChild(
+            createQuestionBlock(question, answer),
+            getQuestionsBox1().children[1]
+        );
+    } else {
+        phaseAppendQuestions = nextCase;
+    }
+}
+
+
+/**
+ * This adds the questions in the box-1
+ * @param {string} question Question text
+ * @param {string} answer Answer text
+ * @param {integer} nextCase phase number to go to next
+ */
+function appendQuestionsOnBox1(question, answer, nextCase) {
+    if (getQuestionsBox1().childElementCount <= 6) {
+        getQuestionsBox1().appendChild(createQuestionBlock(question, answer));
+    } else if (getQuestionsBox1().childElementCount === 7) {
+        getQuestionsBox1().appendChild(createQuestionBlock(question, answer));
+        //Global change
+        phaseAppendQuestions = nextCase;
+    }
+}
+
+/**
+ * This adds the questions in the box-2
+ * @param {string} question Question text
+ * @param {string} answer Answer text
+ * @param {integer} nextCase phase number to go to next
+ */
 function appendQuestionsOnBox2(question, answer, nextCase) {
     if (getQuestionsBox2().childElementCount <= 5) {
         getQuestionsBox2().appendChild(createQuestionBlock(question, answer));
@@ -103,14 +162,42 @@ function appendQuestionsOnBox2(question, answer, nextCase) {
     }
 }
 
-//This adds the questions in the box-1
-function appendQuestionsOnBox1(question, answer, nextCase) {
-    if (getQuestionsBox1().childElementCount <= 6) {
-        getQuestionsBox1().appendChild(createQuestionBlock(question, answer));
-    } else if (getQuestionsBox1().childElementCount === 7) {
-        getQuestionsBox1().appendChild(createQuestionBlock(question, answer));
-        //Global change
-        phaseAppendQuestions = nextCase;
+/**
+ * This removes all questions from box-1 and adds a new one
+ * @param {string} question Question text
+ * @param {string} answer Answer text
+ * @param {integer} nextCase phase number to go to next
+ */
+function resetQuestionOnBox1(question, answer, nextCase) {
+    while (getQuestionsBox1().childElementCount > 1) {
+        getQuestionsBox1().removeChild(getQuestionsBox1().lastElementChild);
+    }
+    getQuestionsBox1().appendChild(createQuestionBlock(question, answer));
+    phaseAppendQuestions = nextCase;
+}
+
+/**
+ * This removes all questions from box-2 and adds a new one
+ * @param {string} question Question text
+ * @param {string} answer Answer text
+ * @param {integer} nextCase phase number to go to next
+ */
+function resetQuestionOnBox2(question, answer, nextCase) {
+    while (getQuestionsBox2().childElementCount > 1) {
+        getQuestionsBox2().removeChild(getQuestionsBox2().lastElementChild);
+    }
+    getQuestionsBox2().appendChild(createQuestionBlock(question, answer));
+    phaseAppendQuestions = nextCase;
+}
+
+/**
+ * This removes the desired elements in order from the bottom
+ * @param {Html Element} container DOM Element
+ * @param {integer} exept Number of items to keep
+ */
+function removeElement(container, exept) {
+    while (container.childElementCount > exept) {
+        container.removeChild(container.lastElementChild);
     }
 }
 
