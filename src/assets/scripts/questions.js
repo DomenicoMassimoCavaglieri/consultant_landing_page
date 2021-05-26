@@ -60,7 +60,7 @@ This section of the DOM is divided into two boxes*/
 function showQuestion(question, answer, counter) {
     switch (counter) {
         case 0:
-            appendFirstQuestionOnBox1(question, answer, 1)
+            appendFirstQuestionOnBox1(question, answer, 1);
             break;
         case 1:
             appendQuestionsOnBox1(question, answer, 2);
