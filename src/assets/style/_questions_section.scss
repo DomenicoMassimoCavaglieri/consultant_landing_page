@@ -36,6 +36,7 @@
         @include mq-min-width(map-get($breakpoints, lg)) {
             @include flex(row, space-between, start);
             height: auto;
+            min-height: 1300px;
         }
         #questions-box-1 {
             position: relative;
