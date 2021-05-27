@@ -1,5 +1,238 @@
+@import "variables";
+@import "mixins";
+
 #feature {
     @include clp-section-default;
-    height: 600px;
-    background-color: $clp-black-green;
+    background-image: url(../images/feature.bg-circle.svg);
+    background-size: 800px 1030px;
+    background-repeat: no-repeat;
+    background-position: -70px 220px;
+    margin-top: 250px;
+
+    #feature-bg {
+        background-image: url(../images/feature.bg-woman.svg);
+        background-size: 780px;
+        background-repeat: no-repeat;
+        background-position: -3px bottom;
+        padding: 0 200px 0 245px;
+
+        #feature-wrapper {
+            @include flex(column, space-between, center);
+            @include text($font-poppins, 18px, 500, $clp-black-green);
+            @include mq-min-width(map-get($breakpoints, 2xl)) {
+                height: 1680px;
+                font-size: 18px;
+            }
+            article {
+                margin: 0 auto;
+                @include mq-min-width(880px) {
+                    text-align: center;
+                    max-width: 660px;
+                }
+            }
+            h2 {
+                font-size: 26px;
+                line-height: 36px;
+                margin-bottom: 20px;
+                text-align: center;
+                @include mq-min-width(map-get($breakpoints, md)) {
+                    font-weight: 500;
+                    line-height: 39px;
+                    margin-bottom: 20px;
+                }
+            }
+            p {
+                text-align: justify;
+                @include mq-min-width(map-get($breakpoints, xs)) {
+                    text-align: center;
+                }
+                @include mq-min-width(map-get($breakpoints, md)) {
+                    font-weight: 400;
+                    line-height: 30px;
+                }
+            }
+
+            #feature__cards-wrapper {
+                position: relative;
+                @include flex(row, space-between, start);
+                width: 973px;
+                height: 569px;
+                .feature__cards-block {
+                    @include flex(column, space-between, center);
+                    width: 442px;
+                    height: 548px;
+                    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
+                    padding: 60px 52px 0;
+                    background-color: $clp-white;
+                    color: $clp-black-green;
+                    #feature__cards-img-1 {
+                        background-image: url(../images/feature-card-1.jpg);
+                    }
+                    #feature__cards-img-2 {
+                        background-image: url(../images/feature-card-2.jpg);
+                    }
+                    .feature__cards-img {
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        width: 340px;
+                        height: 150px;
+                        margin: 0 auto;
+                    }
+                    h2 {
+                        font-size: 26px;
+                        color: black;
+                        p {
+                            line-height: 30px;
+                        }
+                    }
+                    #feature__btn-2 {
+                        background-color: $clp-red;
+                    }
+                    .clp-btn {
+                        width: 234px;
+                        height: 60px;
+                        filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.15));
+                        font-weight: 600;
+                        transform: translateY(50%);
+                    }
+                }
+            }
+            #feature__article-2 {
+                align-self: flex-end;
+                margin: unset;
+            }
+            #post-wrapper {
+                position: relative;
+                align-self: flex-end;
+                width: 488px;
+                height: 375px;
+                margin-bottom: 60px;
+                #post-btn {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    z-index: 2;
+                    transform: translateY(-50%);
+                    margin-right: 10px;
+                    @include size(56px, 56px);
+                    background-color: $clp-grey-4;
+                    background-image: url(../images/feature-post-icon-arrow.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border-radius: 50%;
+                }:hover {
+                    cursor: pointer;
+                }
+                .feature__post {
+                    @include flex(column, space-between, center);
+                    background-color: $clp-white;
+                    padding: 60px 90px 30px 40px;
+                    .post-text {
+                        width: 360px;
+                        height: 180px;
+                        color: $clp-grey-light;
+                        text-align: left;
+                    }
+                    .post-box-icon-name-rating {
+                        @include flex(row, space-between, center);
+                        width: 100%;
+                        height: 98px;
+                        .post-icon {
+                            background-image: url(../images/feature-post-icon.svg);
+                            background-size: auto;
+                            background-repeat: no-repeat;
+                            background-position: -12px -7px;
+                            width: 98px;
+                            height: 98px;
+                        }
+                        .post-box-name-rating {
+                            position: relative;
+                            margin-right: 50px;
+                            padding: {
+                                top: 20px;
+                                bottom: 10px;
+                            }
+                            .post-name {
+                                height: 30px;
+                                font-weight: 600;
+                            }
+                            .post-rating-text {
+                                height: 24px;
+                                font-size: 16px;
+                                color: $clp-grey-light;
+                            }
+                            .post-stars-wrapper {
+                                @include flex(row, flex-start, center);
+                                height: 15px;
+                                font-size: 12px;
+                                .post-stars {
+                                    @include flex(row, space-evenly, center);
+                                    @include size(85px, 12px);
+                                    .post-star {
+                                        background-image: url(../images/post-star.jpg);
+                                        background-size: cover;
+                                        background-repeat: no-repeat;
+                                        background-position: top;
+                                        @include size(12px, 12px);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #ball-wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        top: 920px;
+        left: 550px;
+        z-index: 3;
+        @include size(310px,550px);
+        .box-ball {
+            @include flex(row, space-between, center);
+            @include size(310px,210px);
+        }
+        .ball {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .ball-s {
+            background-image: url(../images/feature-ball-s.svg);
+            @include size(26px,26px);
+        }
+        .ball-m {
+            background-image: url(../images/feature-ball-m.svg);
+            @include size(48px,48px);
+        }
+        .ball-l {
+            background-image: url(../images/feature-ball-l.svg);
+            @include size(88px,88px);
+        }
+        #ball-box-1 {
+            .ball-s {
+                align-self: flex-end;
+            }
+            .ball-m {
+                margin-right: 60px;
+            }
+            .ball-l {
+                align-self: flex-start;
+                margin-right: 30px;
+            }
+            
+        }
+        #ball-box-2 {
+            .ball-s {
+                align-self: flex-start;
+            }
+            .ball-l {
+                align-self: flex-end;
+            }
+        }
+    }
 }

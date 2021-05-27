@@ -7,7 +7,6 @@
     background-size: 800px 1030px;
     background-repeat: no-repeat;
     background-position: 800px top;
-
     padding: 60px 7% 0;
     @include mq-min-width(map-get($breakpoints, xs)) {
         padding: 0 15%;
@@ -188,7 +187,7 @@
     .answer-text {
         height: 0;
         max-height: 100px;
-        overflow: scroll;
+        overflow-y: scroll;
         padding: {
             left: 20px;
             right: 20px;
