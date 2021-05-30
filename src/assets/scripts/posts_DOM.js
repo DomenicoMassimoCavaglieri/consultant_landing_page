@@ -2,55 +2,94 @@ import IconPost from '../images/feature-post-icon.svg';
 import { getNextIndexPost } from "./posts_index_logic";
 
 
+//This when loading the page loads the first post from API
+fetchPostOnPageLoad(0);
 
-//Test object containing posts
-const fetchPosts = [
-    {
-        text: "From most barricade or traffic control companies located in the phone book. They employ certified Traffic Control Supervisors (TCS) who can generate and certify the traffic control plan. ",
-        name: "Simon Sandberg",
-        icon: IconPost,
-        numberOfStars: 5,
-        starsText: 5,
-        id: 0
-    },
-    {
-        text: "Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering. I sense much fear in you.",
-        name: "Yoda",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Retrato_del_Maestro_Yoda.jpg/1200px-Retrato_del_Maestro_Yoda.jpg",
-        numberOfStars: 5,
-        starsText: 5,
-        id: 1
-    },
-    {
-        text: "You Don't Know The Power Of The Dark Side!",
-        name: "Darth Vader",
-        icon: "https://www.projectnerd.it/wp-content/uploads/2016/06/darth-vader.jpg",
-        numberOfStars: 5,
-        starsText: 5,
-        id: 2
-    },
-    {
-        text: "He's no good to me dead.",
-        name: "Boba Fett",
-        icon: "https://cdn11.bigcommerce.com/s-2zs1uo/images/stencil/1280x1280/products/1084/9937/SW_BobaFett_Milestone_12__82086.1615844406.jpg?c=2?imbypass=on",
-        numberOfStars: 5,
-        starsText: 5,
-        id: 3
-    }
-];
+//The button loads other posts from the API
+getPostBtn().onclick = () => {
+    fetchPosts(getCurrentIndex())
+}
+
+
+
+//Fetch management
+
+/**
+ * This when loading the page loads the first post from API
+ * @param {integer} indexFirstPost Index of the first post to show
+ */
+function fetchPostOnPageLoad(indexFirstPost) {
+    displayPreloader();
+    fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes")
+        .then((response) => {
+            printResponseData(response);
+            return response.json();
+        })
+        .then((fetchPosts) => {
+            hidePreloader();
+            printPost(fetchPosts, indexFirstPost);
+        })
+        .catch(error => printError(error));
+}
+
+/**
+ * The button loads other posts from the API
+ * @param {*} currentPostIndex Index of the post to be printed
+ */
+function fetchPosts(currentPostIndex) {
+    displayPreloader();
+    fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes")
+        .then((response) => {
+            printResponseData(response);
+            return response.json();
+        })
+        .then((fetchPosts) => {
+            hidePreloader();
+            printNextPost(
+                fetchPosts,
+                parseInt(currentPostIndex),
+                fetchPosts.length
+            )
+        })
+        .catch(error => printError(error));
+}
+
+
+//Preload management
+
+function displayPreloader() {
+    getPostOverlay().style.visibility = "visible";
+}
+
+function hidePreloader() {
+    setTimeout(() =>
+        getPostOverlay().style.visibility = "hidden",
+        500);
+}
+
+
+//Response data management
+
+function printResponseData(responseData) {
+    let dates = new Date();
+    let time = dates.toLocaleTimeString();
+    let date = dates.toLocaleDateString();
+    getPostResponse().innerHTML =
+        `Response - status: ${responseData.status}, ${responseData.statusText} at ${time} on ${date}`;
+}
+
+function printError(responseError) {
+    getPostResponse().style.color = "red";
+    getPostResponse().innerHTML = `Sorry, ${responseError}`;
+}
 
 
 //Scroll through posts as objects contained in an array. 
 //Indexing is achieved by adding and updating a specific attribute to the post container.
 
-printPost(fetchPosts, 0);
-
-getPostBtn().onclick = () => {
-    printNextPost(
-        fetchPosts,
-        parseInt(getPostWrapper().getAttribute("numberOfId")),
-        fetchPosts.length
-    )
+//This gets the index of the current post
+function getCurrentIndex() {
+    return getPostWrapper().getAttribute("numberOfId");
 }
 
 /**
@@ -63,26 +102,24 @@ function printNextPost(posts, index, numberOfitems) {
     printPost(posts, getNextIndexPost(index, numberOfitems));
 }
 
-
 /**
  * This prints a single post from an array of post objects
  * @param {array of objects} posts List of posts
  * @param {integer} index Index of the post to be printed
  */
 function printPost(posts, index) {
-    console.log("Print Index is: ", index);
     getPostText().innerHTML = posts[index].text;
     getPostName().innerHTML = posts[index].name;
-    getPostIcon().setAttribute("src", posts[index].icon);
-    getPostWrapper().setAttribute("numberOfId", posts[index].id);
+    if (posts[index].icon === "local") {
+        getPostIcon().setAttribute("src", IconPost);
+    } else {
+        getPostIcon().setAttribute("src", posts[index].icon);
+    }
+    getPostWrapper().setAttribute("numberOfId", posts[index].id - 1);
 }
 
 
 //These return elements of the DOM that make up the post
-function getPostBtn() {
-    return getPostWrapper().querySelector("#post-btn");
-}
-
 function getPostName() {
     return getPostWrapper().querySelector("#post-name");
 }
@@ -93,6 +130,18 @@ function getPostIcon() {
 
 function getPostText() {
     return getPostWrapper().querySelector("#post-text");
+}
+
+function getPostOverlay() {
+    return getPostWrapper().querySelector("#post-overlay");
+}
+
+function getPostResponse() {
+    return getPostWrapper().querySelector("#post-response");
+}
+
+function getPostBtn() {
+    return getPostWrapper().querySelector("#post-btn");
 }
 
 function getPostWrapper() {
