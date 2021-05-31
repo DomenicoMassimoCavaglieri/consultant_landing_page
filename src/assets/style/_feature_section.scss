@@ -7,22 +7,39 @@
     background-size: 800px 1030px;
     background-repeat: no-repeat;
     background-position: -70px 220px;
-    margin-top: 250px;
-
+    margin-top: 15%;
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        margin-top: 250px;
+    }
     #feature-bg {
-        background-image: url(../images/feature.bg-woman.svg);
-        background-size: 780px;
-        background-repeat: no-repeat;
-        background-position: -3px bottom;
-        padding: 0 200px 0 245px;
+        padding: 0 7%;
+        @include mq-min-width(map-get($breakpoints, xs)) {
+            padding: 0 15%;
+        }
+        @include mq-min-width(map-get($breakpoints, lg)) {
+            background-image: url(../images/feature.bg-woman.svg);
+            background-size: 720px;
+            background-repeat: no-repeat;
+            background-position: -3px bottom;
+        }
+        @include mq-min-width(map-get($breakpoints, xl)) {
+            background-size: 780px;
+            padding: 0 200px 0 245px;
+        }
 
         #feature-wrapper {
             @include flex(column, space-between, center);
             @include text($font-poppins, 18px, 500, $clp-black-green);
-            @include mq-min-width(map-get($breakpoints, 2xl)) {
+            height: 2200px;
+            text-align: center;
+            @include mq-min-width(map-get($breakpoints, xs)) {
+                height: 2000px;
+            }
+            @include mq-min-width(map-get($breakpoints, md)) {
+                height: 1300px;
+            }
+            @include mq-min-width(map-get($breakpoints, lg)) {
                 height: 1680px;
-                font-size: 18px;
-                text-align: center;
             }
             article {
                 margin: 0 auto;
@@ -41,28 +58,61 @@
                 }
             }
             p {
-                @include mq-min-width(map-get($breakpoints, xs)) {
-                    }
                 @include mq-min-width(map-get($breakpoints, md)) {
                     font-weight: 400;
                     line-height: 30px;
                 }
             }
-
             #feature__cards-wrapper {
                 position: relative;
-                @include flex(row, space-between, start);
-                width: 973px;
-                height: 569px;
+                @include flex(column, space-between, center);
+                @include size(100%, 38%);
+                
+                @include mq-min-width(480px) {
+                    @include size(100%, 50%);
+                }
+                @include mq-min-width(map-get($breakpoints, xs)) {
+                    @include size(100%, 51%);
+                }
+                @include mq-min-width(map-get($breakpoints, sm)) {
+                    height: 55%;
+                }
+                @include mq-min-width(map-get($breakpoints, md)) {
+                    flex-direction: row;
+                    height: 35%;
+                    font-size: 16px;
+                }
+                @include mq-min-width(map-get($breakpoints, lg)) {
+                    height: 30%;
+                }
+                @include mq-min-width(map-get($breakpoints, xl)) {
+                    @include size(973px, 569px);
+                }
+                @include mq-min-width(map-get($breakpoints, xl)) {
+                    margin-bottom: 100px;
+                }
                 .feature__cards-block {
                     @include flex(column, space-between, center);
-                    width: 442px;
-                    height: 548px;
                     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
                     border-radius: 10px;
-                    padding: 60px 52px 0;
                     background-color: $clp-white;
                     color: $clp-black-green;
+                    padding: 5% 5% 0;
+                    @include size(80%, 43%);
+                    @include mq-min-width(map-get($breakpoints, sm)) {
+                        @include size(65%, 500px);
+                    }
+                    @include mq-min-width(map-get($breakpoints, md)) {
+                        @include size(45%, 100%);
+                        margin-bottom: 40px;
+                    }
+                    @include mq-min-width(map-get($breakpoints, lg)) {
+                        @include size(44%, 96%);
+                        padding: 60px 52px 0;
+                    }
+                    @include mq-min-width(map-get($breakpoints, 2xl)) {
+                        @include size(442px, 548px);
+                    }
                     #feature__cards-img-1 {
                         background-image: url(../images/feature-card-1.jpg);
                     }
@@ -72,48 +122,80 @@
                     .feature__cards-img {
                         background-size: contain;
                         background-repeat: no-repeat;
-                        width: 340px;
-                        height: 150px;
                         margin: 0 auto;
+                        @include size(100%, 35%);
+                        @include mq-min-width(map-get($breakpoints, 2xl)) {
+                            @include size(340px, 150px);
+                        }
                     }
                     h2 {
-                        font-size: 26px;
+                        font-size: 24px;
                         color: black;
-                        p {
+                        @include mq-min-width(map-get($breakpoints, lg)) {
+                            font-size: 26px;
+                        }
+                    }
+                    p {
+                        font-size: 16px;
+                        font-weight: 300;
+                        line-height: 20px;
+                        @include mq-min-width(map-get($breakpoints, xs)) {
+                            font-weight: 500;
+                            line-height: 26px;
+                        }
+                        @include mq-min-width(map-get($breakpoints, lg)) {
+                            font-size: 18px;
                             line-height: 30px;
                         }
                     }
+
                     #feature__btn-2 {
                         background-color: $clp-red;
                     }
                     .clp-btn {
-                        width: 234px;
-                        height: 60px;
+                        @include size(65%, 15%);
                         filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.15));
                         font-weight: 600;
                         transform: translateY(50%);
+                        @include mq-min-width(map-get($breakpoints, lg)) {
+                            @include size(234px, 68px);
+                        }
                     }
                 }
             }
             #feature__article-2 {
-                align-self: flex-end;
-                margin: unset;
+                margin-top: 40px;
+                @include mq-min-width(map-get($breakpoints, md)) {
+                    margin: unset;
+                }
+                @include mq-min-width(map-get($breakpoints, lg)) {
+                    align-self: flex-end;
+                    width: 50%;
+                }
+                @include mq-min-width(map-get($breakpoints, 2xl)) {
+                    width: auto;
+                }
             }
-            
         }
     }
     #ball-wrapper {
         position: absolute;
-        display: flex;
+        display: none;
         justify-content: space-between;
         flex-direction: column;
         top: 920px;
         left: 550px;
         z-index: 3;
-        @include size(310px,550px);
+        @include size(310px, 550px);
+        @include mq-min-width(map-get($breakpoints, 2xl)) {
+            display: flex;
+        }
         .box-ball {
-            @include flex(row, space-between, center);
-            @include size(310px,210px);
+            display: none;
+            @include size(310px, 210px);
+            @include mq-min-width(map-get($breakpoints, 2xl)) {
+                @include flex(row, space-between, center);
+            }
         }
         .ball {
             background-repeat: no-repeat;
@@ -121,15 +203,15 @@
         }
         .ball-s {
             background-image: url(../images/feature-ball-s.svg);
-            @include size(26px,26px);
+            @include size(26px, 26px);
         }
         .ball-m {
             background-image: url(../images/feature-ball-m.svg);
-            @include size(48px,48px);
+            @include size(48px, 48px);
         }
         .ball-l {
             background-image: url(../images/feature-ball-l.svg);
-            @include size(88px,88px);
+            @include size(88px, 88px);
         }
         #ball-box-1 {
             .ball-s {
@@ -142,7 +224,6 @@
                 align-self: flex-start;
                 margin-right: 30px;
             }
-            
         }
         #ball-box-2 {
             .ball-s {

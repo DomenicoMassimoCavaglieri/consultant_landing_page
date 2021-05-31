@@ -75,7 +75,7 @@ function printResponseData(responseData) {
     let time = dates.toLocaleTimeString();
     let date = dates.toLocaleDateString();
     getPostResponse().innerHTML =
-        `Response - status: ${responseData.status}, ${responseData.statusText} at ${time} on ${date}`;
+        `status: ${responseData.status}, ${responseData.statusText} at ${time} on ${date}`;
 }
 
 function printError(responseError) {

@@ -20,7 +20,6 @@ describe("change the global state", () => {
         expect(mockChangeQuestionsPhase(globalPhase, 2)).toEqual(2);
     }),
 
-
     test("it should change the questions numbering", () => {
        
         expect(mockChangeQuestionsNumber(globalQuestion)).toEqual(2);
