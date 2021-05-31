@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+#footer {
+    background-color: red;
+    @include clp-section-default;
+    height: 1135px;
+    padding: 60px 7% 0;
+    @include mq-min-width(map-get($breakpoints, xs)) {
+        padding: 0 15%;
+    }
+    @include mq-min-width(map-get($breakpoints, lg)) {
+        background-position: 600px top;
+    }
+    @include mq-min-width(map-get($breakpoints, xl)) {
+        background-position: 800px top;
+        padding: 0 200px 0 245px;
+    }
+}
