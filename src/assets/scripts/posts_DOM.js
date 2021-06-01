@@ -7,7 +7,7 @@ fetchPostOnPageLoad(0);
 
 //The button loads other posts from the API
 getPostBtn().onclick = () => {
-    fetchPosts(getCurrentIndex())
+    fetchPosts(getCurrentIndex());
 }
 
 
@@ -120,6 +120,7 @@ function printPost(posts, index) {
 
 
 //These return elements of the DOM that make up the post
+
 function getPostName() {
     return getPostWrapper().querySelector("#post-name");
 }

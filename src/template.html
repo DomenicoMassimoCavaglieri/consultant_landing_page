@@ -179,12 +179,20 @@
         <section id="form-section">
             <h2 class="form-title">Please join with us & get all kind of benifit</h2>
             <div id="form-wrapper">
-                <form action="" id="login">
+                <div id="form__overlay" class="hidden">
+                    <div id="form__overlay-clear"></div>
+                    <div id="form__overlay-text" class="hidden">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure aliquid quaerat quae ea fugiat quo?</div>
+                </div>
+                <form id="login">
                     <label for="input-name">Nome</label>
-                    <input id="input-name" type="text">
+                    <input id="input-name" placeholder="Your name" type="text">
                     <label for="input-password">Password</label>
-                    <input id="input-password"type="text">
-                    <button class="clp-btn">SIGN IN</button>
+                    <div class="password-wrapper">
+                        <input id="input-password" placeholder="Your password" type="password">
+                        <div id="eye" class="open-eye"></div>
+                    </div>
+                    
+                    <div id="form-btn" class="clp-btn">SIGN IN</div>
                     <span>Don’t have an account ? </span> 
                     <span id="signin"><a href=""> Sign up here</a></span>
                 </form>
