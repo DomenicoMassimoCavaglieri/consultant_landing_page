@@ -149,4 +149,6 @@
 from scrolling under the nodal*/
 .mobile-menu-noscroll {
     position: fixed;
+    width: -moz-available;
+    width: -webkit-fill-available;
 }

@@ -68,14 +68,11 @@ function hidePreloader() {
 }
 
 
-//Response data management
+//Response data print
 
 function printResponseData(responseData) {
-    let dates = new Date();
-    let time = dates.toLocaleTimeString();
-    let date = dates.toLocaleDateString();
     getPostResponse().innerHTML =
-        `status: ${responseData.status}, ${responseData.statusText} at ${time} on ${date}`;
+        `status: ${responseData.status}, ${responseData.statusText} at ${currentDate().time} on ${currentDate().date}`;
 }
 
 function printError(responseError) {
@@ -83,6 +80,15 @@ function printError(responseError) {
     getPostResponse().innerHTML = `Sorry, ${responseError}`;
 }
 
+
+//This returns an object with the current date and time
+function currentDate() {
+    let dates = new Date();
+    dates.time = dates.toLocaleTimeString();
+    dates.date = dates.toLocaleDateString();
+    return dates;
+}
+export {currentDate};
 
 //Scroll through posts as objects contained in an array. 
 //Indexing is achieved by adding and updating a specific attribute to the post container.

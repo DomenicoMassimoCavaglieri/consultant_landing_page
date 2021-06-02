@@ -57,7 +57,7 @@
             @include flex(column, flex-start, center);
             top: 0;
             right: 0;
-            z-index: 2;
+            z-index: 3;
             @include size(100%, 100%);
             background-color: rgba(0, 0, 0, 0.75);
             transition: all 0.2s ease-out;
@@ -81,7 +81,7 @@
                 line-height: 26px;
                 text-align: left;
                 overflow-wrap: anywhere;
-                padding: 2%;
+                padding: 4%;
                 transition: all 0.5s ease-in;
                 @include mq-min-width(map-get($breakpoints, md)) {
                     font-size: 18px;
@@ -230,10 +230,11 @@
             }
         }
 
-        a {
+        #signin {
             display: block;
             color: $clp-red;
             font-weight: 500;
+            cursor: pointer;
             @include mq-min-width(map-get($breakpoints, md)) {
                 display: inline;
             }
