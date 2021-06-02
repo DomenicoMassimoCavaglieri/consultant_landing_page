@@ -1,58 +1,57 @@
-//Esempio POST
-const postUrl = "https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/user";
-const formUser = {
-    "name": "",
-    "password": ""
-};
+import {currentDate} from "./posts_DOM";
+import {formSubmit} from "./form_validation";
 
 
+//Subscribe the form
 getFormBtn().onclick = () => {
-    fetchUser(createUser(formUser));
+    if (formSubmit()) {
+        fetchUser(createUser(getFormName(),getFormPassword()));
+    }
 }
 
+//Close the form validation modal
 getFormClose().onclick = () => hideFormOverlay();
 
 
-//This takes the data from the form and places it in the constant formUser
-function createUser(userObj) {
-    userObj.name = getFormName().value;
-    userObj.password = getFormPassword().value;
+
+
+/**
+ * The button sends user to the API
+ * @param {objrct} userObj An object that complies with the agreement with the API 
+ */
+function fetchUser(userObj) {
+    fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/user", {
+        method: "POST",
+        headers: {"Content-Type": "application/json","Accept": "application/json"},
+        body: JSON.stringify(userObj)})
+        .then(response => response.json())      
+        .then(bodyResponse => printTextInOverlay(
+            `Welcome ${bodyResponse.name}.<br><br>New user: 
+            ${JSON.stringify(bodyResponse)}<br>Created at:<br>${currentDate().time} on ${currentDate().date}`))
+        .catch(error => printTextInOverlay(error))
+}
+
+
+/**
+ * This takes the data from the form and places it in a object that returns
+ * The structure of the object complies with the agreement with the API 
+ * @param {*} userObj 
+ * @returns 
+ */
+ function createUser(inputName,inputPassword) {
+    const userObj = {};
+    userObj.name = inputName.value;
+    userObj.password = inputPassword.value;
     return userObj;
 }
 
 
 
-//The button sends user to the API
-function fetchUser(userObj) {
-    fetch(postUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(userObj)
-    })
-        .then(
-            response => {
-                return response.json();
-            }
-        )
-        .then(
-            bodyResponse => {
-                printTextInOverlay(`Congratulations, registered user: ${JSON.stringify(bodyResponse)}`);
-                console.log(JSON.stringify(bodyResponse));
-            }
-        )
-        .catch(
-            error => {
-                console.log(printTextInOverlay(error));
-            }
-        )
-}
-
-
-
-//This prints the message in the overlay
+//This prints a message in the form overlay
+/**
+ * 
+ * @param {string} message to print in form overlay 
+ */
 function printTextInOverlay(message) {
     showFormOverlay();
     getFormOverlayText().innerHTML = message;
@@ -70,6 +69,7 @@ function hideFormOverlay() {
     getFormOverlay().classList.add("hidden");
     getFormOverlayText().classList.add("hidden");
 }
+
 
 //Toggle between hidden and visible password
 getEye().onclick =  () => {
@@ -114,3 +114,5 @@ function getFormName() {
 function getFormWrapper() {
     return document.querySelector("#form-wrapper");
 }
+
+export {getFormName, getFormPassword, printTextInOverlay};
