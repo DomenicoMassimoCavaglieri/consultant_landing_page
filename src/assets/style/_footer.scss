@@ -2,18 +2,161 @@
 @import "mixins";
 
 #footer {
-    background-color: red;
     @include clp-section-default;
-    height: 1135px;
-    padding: 60px 7% 0;
-    @include mq-min-width(map-get($breakpoints, xs)) {
-        padding: 0 15%;
-    }
-    @include mq-min-width(map-get($breakpoints, lg)) {
-        background-position: 600px top;
+    @include flex(column, center, center);
+    @include size(100%, 100%);
+    background-image: url(../images/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 300% 100%;
+    background-position: center;
+    height: 680px;
+    @include text($font-poppins, 16px, 400, $clp-white-dark);
+    line-height: 24px;
+
+    @include mq-min-width(map-get($breakpoints, md)) {
+        background-size: 100% 100%;
+        background-position: center bottom;
+        height: 380px;
     }
     @include mq-min-width(map-get($breakpoints, xl)) {
-        background-position: 800px top;
-        padding: 0 200px 0 245px;
+        background-size: 100% 100%;
+        background-position: center bottom;
+        height: 500px;
+    }
+    #footer__menu-wrapper {
+        position: relative;
+        @include flex(column, center, center);
+        width: 100%;
+        @include mq-min-width(map-get($breakpoints, md)) {
+            flex-direction: row;
+            align-items: flex-start;
+            margin-top: 10%;
+        }
+        .footer__menu-box {
+            position: relative;
+            @include flex(row, center, flex-start);
+            @include size(100%, auto);
+            margin-bottom: 2%;
+            padding-left: 5%;
+            @include mq-min-width(map-get($breakpoints, md)) {
+                width: 25%;
+                padding-left: unset;
+                margin-bottom: unset;
+                margin-left: 4%;
+            }
+
+            .footer__single-menu-wrapper {
+                width: 40%;
+                height: auto;
+                max-width: 200px;
+                @include mq-min-width(map-get($breakpoints, md)) {
+                    max-width: unset;
+                    width: 59%;
+                }
+            }
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+            color: $clp-white;
+            margin-bottom: 5%;
+        }
+    }
+
+    #footer__social-wrapper {
+        position: relative;
+        @include flex(column, center, center);
+        @include size(100%, 22%);
+        top: 4%;
+        @include mq-min-width(map-get($breakpoints, md)) {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 15%;
+            top: unset;
+        }
+        @include mq-min-width(map-get($breakpoints, xl)) {
+            align-items: flex-end;
+        }
+
+        p {
+            order: 3;
+            font-weight: 300;
+            line-height: 30px;
+            color: $clp-white;
+            margin-top: 2%;
+            @include mq-min-width(map-get($breakpoints, md)) {
+                order: 1;
+                margin-top: .5%;
+                min-width: 140px;
+            }
+        }
+        
+        #footer__social-icon-wrapper {
+            order: 2;
+            @include flex(row, space-between, center);
+            @include size(170px, 100%);
+            min-width: 170px;
+            @include mq-min-width(map-get($breakpoints, md)) {
+                order: 2;
+            }
+            @include mq-min-width(map-get($breakpoints, xl)) {
+                align-items: flex-end;
+                margin-left: 36%;
+            }
+            .social-icon {
+                @include size(36px, 36px);
+                background-repeat: no-repeat;
+                background-size: cover;
+                cursor: pointer;
+            }
+            #footer__social-1 {
+                background-image: url(../images/footer-icon-1.svg);
+            }
+            #footer__social-2 {
+                background-image: url(../images/footer-icon-2.svg);
+            }
+            #footer__social-3 {
+                background-image: url(../images/footer-icon-3.svg);
+            }
+        }
+        
+        #footer__logo-wrapper {
+            order: 1;
+            position: relative;
+            @include flex(row, space-between, center);
+            @include size(185px, 100%);
+            @include mq-min-width(map-get($breakpoints, md)) {
+                order: 3;
+            }
+            @include mq-min-width(map-get($breakpoints, xl)) {
+                align-items: flex-end;
+            }
+        
+            #footer__logo {
+                @include size(46px, 34px);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-image: url(../images/footer-logo.svg);
+            }
+        
+            #footer__logo-name {
+                @include size(132px, 25px);
+                background-repeat: no-repeat;
+                background-size: auto;
+                background-position: center;
+                background-image: url(../images/logo-name-white.svg);
+                margin-top: 0;
+                @include mq-min-width(map-get($breakpoints, md)) {
+                    margin-bottom: 2%;
+                }
+                @include mq-min-width(map-get($breakpoints, 2xl)) {
+                    margin-bottom: 2.5%;
+                }
+                @include mq-min-width(map-get($breakpoints, 2xl)) {
+                    margin-bottom: 2%;
+                }
+            }
+        }
     }
 }

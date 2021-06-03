@@ -6,11 +6,11 @@
     height: 700px;
     @include text($font-poppins, 18px, 400, $clp-black-green);
     @include mq-min-width(map-get($breakpoints, md)) {
-        height: 1100px;
+        height: 900px;
     }
     h2 {
         @include text($font-pt, 26px, 400, $clp-black-dark);
-        @include size(80%,auto);
+        width: 80%;
         max-width: 405px;
         margin: {
             top: 12%;
@@ -20,9 +20,11 @@
         text-align: center;
         font-size: 36px;
         @include mq-min-width(map-get($breakpoints, md)) {
-            @include size(34%,11%);
+            width: 34%;
             min-width: 480px;
+            max-width: unset;
             margin: {
+                top: 11%;
                 left: 15%;
                 right: unset;
             }
@@ -45,8 +47,9 @@
             right: auto;
         }
         @include mq-min-width(map-get($breakpoints, md)) {
-            @include size(44%, 51%);
+            @include size(44%, 63%);
             min-width: 600px;
+            max-width: unset;
             margin: {
                 left: 28%;
             }

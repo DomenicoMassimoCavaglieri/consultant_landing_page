@@ -6,8 +6,11 @@
     background-image: url(../images/feature.bg-circle.svg);
     background-size: 800px 1030px;
     background-repeat: no-repeat;
-    background-position: -70px 220px;
+    background-position: 0 284px;
     margin-top: 15%;
+    @include mq-min-width(map-get($breakpoints, xs)) {
+        background-position: -70px 220px;
+    }
     @include mq-min-width(map-get($breakpoints, lg)) {
         margin-top: 250px;
     }
