@@ -27,15 +27,14 @@
 
     #logo__wrapper {
         @include flex(row, space-between, center);
-        @include size(220px, 100%);
+        @include size(230px, auto);
         @include text($font-roboto, 22px, 400, $clp-black-light);
-        @include mq-min-width(map-get($breakpoints, xs)) {
-            @include size(210px, 100%);
-        }
-        @include mq-min-width(map-get($breakpoints, xl)) {
-            @include size(225px, auto);
-        }
         #logo-name {
+            position: relative;
+            @include size(126px,26px);
+            background-image: url(../images/logo-name-black.svg);
+            background-size: 97% auto;
+            background-repeat: no-repeat;
             font-size: 24px;
             &::hover {
                 cursor: pointer;

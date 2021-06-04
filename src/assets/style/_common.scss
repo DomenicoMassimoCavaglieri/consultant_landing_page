@@ -31,18 +31,10 @@ a:visited {
 .logo {
     background-image: url(../images/logo.svg);
     background-size: contain;
+    background-repeat: no-repeat;
     @include size(72px, 72px);
     &::hover {
         cursor: pointer;
-    }
-    @include mq-min-width(map-get($breakpoints, xs)) {
-        @include size(60px, 60px);
-    }
-    @include mq-min-width(map-get($breakpoints, lg)) {
-        @include size(68px, 68px);
-    }
-    @include mq-min-width(map-get($breakpoints, xl)) {
-        @include size(72px, 72px);
     }
 }
 
