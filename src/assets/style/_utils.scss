@@ -16,6 +16,11 @@
     transition: $clp-default-transition;
 }
 
+.hidden-notransition {
+    visibility: hidden;
+    opacity: 0;
+}
+
 .transition {
     transition: $clp-default-transition;
 }

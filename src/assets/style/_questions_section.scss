@@ -3,22 +3,23 @@
 
 #questions {
     @include clp-section-default;
-    background-image: url(../images/questions-bg-circle.svg);
-    background-size: 800px 1030px;
-    background-repeat: no-repeat;
-    background-position: 800px top;
-    padding: 60px 7% 0;
+    padding: 0 7%;
     @include mq-min-width(map-get($breakpoints, xs)) {
         padding: 0 15%;
     }
     @include mq-min-width(map-get($breakpoints, lg)) {
         background-position: 600px top;
+        background-image: url(../images/questions-bg-circle.svg);
+        background-size: 800px 1030px;
+        background-repeat: no-repeat;
+        padding: 60px 7% 0;
     }
     @include mq-min-width(map-get($breakpoints, xl)) {
         background-position: 800px top;
         padding: 0 200px 0 245px;
         margin-top: 30px;
     }
+
     #questions-wrapper {
         @include flex(column, space-between, start);
         width: auto;
@@ -37,26 +38,31 @@
             height: auto;
             min-height: 1300px;
         }
+
         #questions-box-1 {
             position: relative;
             @include size(100%, auto);
             @include mq-min-width(map-get($breakpoints, lg)) {
                 @include size(50%, auto);
             }
+
             .questions-title {
                 @include size(auto, auto);
                 @include text($font-pt, 32px, 400, $clp-black-green);
+                margin: 0 auto 50px;
+                max-width: 550px;
                 text-align: center;
-                margin-bottom: 50px;
                 @include mq-min-width(map-get($breakpoints, sm)) {
-                    font-size: 44px;
-                    line-height: 67px;
-                    text-align: left;
+                    font-size: 40px;
+                    line-height: 60px;
                 }
                 @include mq-min-width(map-get($breakpoints, md)) {
                     font-size: 48px;
+                    text-align: left;
+                    line-height: 67px;
                 }
                 @include mq-min-width(map-get($breakpoints, lg)) {
+                    text-align: left;
                     padding: {
                         top: 220px;
                         bottom: 131px;
@@ -78,6 +84,7 @@
                 }
             }
         }
+
         #questions-box-2 {
             position: relative;
             @include size(100%, auto);
@@ -101,6 +108,7 @@
             }
         }
     }
+
     #loadQuestionsBtn {
         margin: 0 auto;
         margin-bottom: 40px;
@@ -142,6 +150,7 @@
     @include mq-min-width(map-get($breakpoints, 2xl)) {
         width: 550px;
     }
+
     .question-label {
         @include flex(row, space-between, center);
         width: auto;
@@ -161,6 +170,7 @@
         @include mq-min-width(map-get($breakpoints, 2xl)) {
             width: 550px;
         }
+
         .question-text {
             width: 350px;
             font-weight: 400;
@@ -170,9 +180,9 @@
             }
             @include mq-min-width(map-get($breakpoints, xl)) {
                 width: 460px;
-                
             }
         }
+
         .answer-arrow {
             @include size(24px, 24px);
             background-image: url(../images/questions-icon-closed.svg);
@@ -182,6 +192,7 @@
             cursor: pointer;
         }
     }
+    
     .answer-text {
         height: 0;
         max-height: 100px;
