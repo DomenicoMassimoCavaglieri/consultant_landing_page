@@ -62,6 +62,9 @@
             color: $clp-white;
             margin-bottom: 5%;
         }
+        p {
+            @include hover-text;
+        }
     }
 
     #footer__social-wrapper {

@@ -31,7 +31,7 @@
         @include text($font-roboto, 22px, 400, $clp-black-light);
         #logo-name {
             position: relative;
-            @include size(126px,26px);
+            @include size(126px, 26px);
             background-image: url(../images/logo-name-black.svg);
             background-size: 97% auto;
             background-repeat: no-repeat;
@@ -53,9 +53,8 @@
         @include mq-min-width(map-get($breakpoints, md)) {
             @include flex(row, space-between, center);
             @include text($font-poppins, 16px, 500, $clp-black-light-2);
-            width: 40%;
-            span:hover {
-                cursor: pointer;
+            span {
+                @include hover-text;
             }
         }
         @include mq-min-width(map-get($breakpoints, lg)) {

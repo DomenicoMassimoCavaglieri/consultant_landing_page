@@ -64,9 +64,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         border-radius: 50%;
-        &:hover {
-            cursor: pointer;
-        }
+        @include hover-btn;
         @include mq-min-width(map-get($breakpoints,xs)) {
             @include size(56px, 56px);
         }

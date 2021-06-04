@@ -240,7 +240,7 @@
             display: block;
             color: $clp-red;
             font-weight: 500;
-            cursor: pointer;
+            @include hover-text;
             @include mq-min-width(map-get($breakpoints, md)) {
                 display: inline;
             }
