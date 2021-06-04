@@ -103,7 +103,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    transition: all 0.2s ease-out;
     @include mq-min-width(map-get($breakpoints, md)) {
         display: none;
     }
@@ -111,7 +110,8 @@
     #mobile-menu__wrapper {
         @include flex(row, flex-end, flex-start);
         @include size(auto, 300px);
-        padding-right: 7%;
+        padding-right: 85px;
+        padding-right: 8.9%;
         #mobile-menu {
             background-color: $clp-black-transp;
             @include text($font-poppins, 25px, 500, $clp-white);
@@ -119,7 +119,7 @@
             line-height: 50px;
             margin-top: 10px;
             border-radius: 15px;
-            transition: all 0.5s ease-in;
+            transition: all 0.4s ease-in;
             p:hover {
                 background-color: $clp-purple-transp;
                 border-radius: 15px;
