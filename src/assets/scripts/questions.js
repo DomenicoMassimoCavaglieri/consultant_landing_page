@@ -1,12 +1,21 @@
 import { randomLoremGenMax66Words } from "./lorem";
+
+//The LOAD MORE button loads questions and answers until the appropriate container is filled.
+//When the question boxes are full, they are alternately emptied 
+//and filled with new questions by pressing the button, endlessly.
+
+
 let numberOfQuestion = 1; //Questions and answers start numbering
 let phaseAppendQuestions = 0; //Starting phase for the addition of the questions
 
 
+//Listener on the user's screen resolution
 const mobileMedia = window.matchMedia("(max-width: 1199px)");
 mobileMedia.addListener(setAppendQuestionBasedOnDisplay);
 
 
+//Questions and answers have the same numbering and the texts are created with a random Lorem generator
+//They are contained in an object that contains the print method
 class QuestionAndAnswer {
     constructor(quest, ans, num) {
         this.question = quest;

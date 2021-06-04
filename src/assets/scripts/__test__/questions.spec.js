@@ -1,5 +1,5 @@
-//import {changeQuestionsPhase} from "../questions";
-//import {phaseAppendQuestions} from "../questions";
+//Mock Test of the numbering of the loaded questions
+//Mock Test of the progress of the phases of loading the questions
 
 
 let globalPhase = 0;
@@ -26,4 +26,3 @@ describe("change the global state", () => {
 
     });
 });
-

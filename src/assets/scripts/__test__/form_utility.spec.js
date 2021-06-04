@@ -1,5 +1,8 @@
 import { isOneFieldEmpty, isValidUsername, isValidPassword } from "../form_utility";
 
+//Test of filling in the form fields
+
+
 describe("Form validations functions", () => {
    //Empty field
     test("It should return true if the pattern is respected", () => {
