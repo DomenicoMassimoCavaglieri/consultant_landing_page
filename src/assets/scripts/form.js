@@ -1,5 +1,6 @@
 import {currentDate} from "./posts_DOM";
 import {formSubmit} from "./form_validation";
+import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
 
 
 //Subscribe the form
@@ -20,14 +21,18 @@ getFormClose().onclick = () => hideFormOverlay();
  * @param {objrct} userObj An object that complies with the agreement with the API 
  */
 function fetchUser(userObj) {
+    displayPreloader(getFormWrapper());
     fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/user", {
         method: "POST",
         headers: {"Content-Type": "application/json","Accept": "application/json"},
         body: JSON.stringify(userObj)})
         .then(response => response.json())      
-        .then(bodyResponse => printTextInOverlay(
+        .then((bodyResponse) => {
+            removePreloader(getFormWrapper(), 500);
+            printTextInOverlay(
             `Welcome ${bodyResponse.name}.<br><br>New user: 
-            ${JSON.stringify(bodyResponse)}<br>Created at:<br>${currentDate().time} on ${currentDate().date}`))
+            ${JSON.stringify(bodyResponse)}<br>Created at:<br>${currentDate().time} on ${currentDate().date}`)
+        })
         .catch(error => printTextInOverlay(error))
 }
 
@@ -35,7 +40,8 @@ function fetchUser(userObj) {
 /**
  * This takes the data from the form and places it in a object that returns
  * The structure of the object complies with the agreement with the API 
- * @param {*} userObj 
+ * @param {string} inputName 
+ * @param {string} inputPassword 
  * @returns 
  */
  function createUser(inputName,inputPassword) {
