@@ -1,5 +1,6 @@
 import IconPost from '../images/feature-post-icon.svg';
-import { getNextIndexPost } from "./posts_index_logic";
+import {getNextIndexPost} from "./posts_index_logic";
+import {displayPreloader, hidePreloader} from "./tools/preloader/preloader";
 
 
 //This when loading the page loads the first post from API
@@ -19,14 +20,14 @@ getPostBtn().onclick = () => {
  * @param {integer} indexFirstPost Index of the first post to show
  */
 function fetchPostOnPageLoad(indexFirstPost) {
-    displayPreloader();
+    displayPreloader(getPostWrapper());
     fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes")
         .then((response) => {
             printResponseData(response);
             return response.json();
         })
         .then((fetchPosts) => {
-            hidePreloader();
+            hidePreloader(getPostWrapper());
             printPost(fetchPosts, indexFirstPost);
         })
         .catch(error => printError(error));
@@ -37,14 +38,14 @@ function fetchPostOnPageLoad(indexFirstPost) {
  * @param {*} currentPostIndex Index of the post to be printed
  */
 function fetchPosts(currentPostIndex) {
-    displayPreloader();
+    displayPreloader(getPostWrapper());
     fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes")
         .then((response) => {
             printResponseData(response);
             return response.json();
         })
         .then((fetchPosts) => {
-            hidePreloader();
+            hidePreloader(getPostWrapper());
             printNextPost(
                 fetchPosts,
                 parseInt(currentPostIndex),
@@ -52,19 +53,6 @@ function fetchPosts(currentPostIndex) {
             )
         })
         .catch(error => printError(error));
-}
-
-
-//Preload management
-
-function displayPreloader() {
-    getPostOverlay().style.visibility = "visible";
-}
-
-function hidePreloader() {
-    setTimeout(() =>
-        getPostOverlay().style.visibility = "hidden",
-        500);
 }
 
 
@@ -137,10 +125,6 @@ function getPostIcon() {
 
 function getPostText() {
     return getPostWrapper().querySelector("#post-text");
-}
-
-function getPostOverlay() {
-    return getPostWrapper().querySelector("#post-overlay");
 }
 
 function getPostResponse() {
