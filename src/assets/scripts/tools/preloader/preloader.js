@@ -1,15 +1,23 @@
 //Preloader
 
-function hidePreloader(wrapperInDOM) {
-    setTimeout(() => wrapperInDOM.removeChild(document.querySelector("#preloader-overlay")), 500);
+/**
+ * This removes the preloader after at the set time
+ * @param {DOM Element} wrapperInDOM 
+ * @param {integer} time expressed in seconds
+ */
+function removePreloader(wrapperInDOM, time) {
+    setTimeout(() => wrapperInDOM.removeChild(document.querySelector("#preloader-overlay")), time);
 }
 
-
+/**
+ * This shows the preloader, inserting it into the DOM
+ * @param {DOM Element} wrapperInDOM 
+ */
 function displayPreloader(wrapperInDOM) {
     wrapperInDOM.appendChild(createPreloader());
 }
 
-
+//This creates the preloader element, ready to be inserted into the DOM
 function createPreloader() {
     const preloadOverlay = document.createElement("div");
     const preloader = document.createElement("div");
@@ -20,4 +28,4 @@ function createPreloader() {
     return preloadOverlay;
 }
 
-export {displayPreloader, hidePreloader};
+export {displayPreloader, removePreloader};

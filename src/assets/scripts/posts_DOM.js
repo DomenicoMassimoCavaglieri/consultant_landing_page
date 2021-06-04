@@ -1,6 +1,6 @@
 import IconPost from '../images/feature-post-icon.svg';
 import {getNextIndexPost} from "./posts_index_logic";
-import {displayPreloader, hidePreloader} from "./tools/preloader/preloader";
+import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
 
 
 //This when loading the page loads the first post from API
@@ -27,7 +27,7 @@ function fetchPostOnPageLoad(indexFirstPost) {
             return response.json();
         })
         .then((fetchPosts) => {
-            hidePreloader(getPostWrapper());
+            removePreloader(getPostWrapper(), 500);
             printPost(fetchPosts, indexFirstPost);
         })
         .catch(error => printError(error));
@@ -45,7 +45,7 @@ function fetchPosts(currentPostIndex) {
             return response.json();
         })
         .then((fetchPosts) => {
-            hidePreloader(getPostWrapper());
+            removePreloader(getPostWrapper(), 500);
             printNextPost(
                 fetchPosts,
                 parseInt(currentPostIndex),
