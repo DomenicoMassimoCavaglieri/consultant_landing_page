@@ -15,6 +15,23 @@ module.exports = merge(common, {
         clean: true
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            'meta': {
+                'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+                //<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                
+                'Content-Security-Policy': { 'http-equiv': 'Content-Security-Policy', 'content': 'default-src https:' },
+                //<meta http-equiv="Content-Security-Policy" content="default-src https:">
+
+                'og:image': {'property': 'og:image', 'content':'../src/assets/images/open_graph_image.jpg'},
+                //<meta property="og:image" content="../src/assets/images/open_graph_image.jpg">
+
+                'twitter:image': '../src/assets/images/open_graph_image.jpg'
+                //<meta name="twitter:image" content="../src/assets/images/open_graph_image.jpg">
+            }
+        })
+    ],
+    plugins: [
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css",
