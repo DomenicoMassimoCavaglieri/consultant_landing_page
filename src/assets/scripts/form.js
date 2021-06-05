@@ -1,4 +1,4 @@
-import {currentDate} from "./posts_DOM";
+import {currentDate} from "./tools/current_date";
 import {formSubmit} from "./form_validation";
 import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
 

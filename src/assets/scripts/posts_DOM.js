@@ -1,7 +1,7 @@
 import IconPost from '../images/feature-post-icon.svg';
 import {getNextIndexPost} from "./posts_index_logic";
 import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
-
+import {currentDate} from "./tools/current_date";
 
 //This when loading the page loads the first post from API
 fetchPostOnPageLoad(0);
@@ -68,15 +68,6 @@ function printError(responseError) {
     getPostResponse().innerHTML = `Sorry, ${responseError}`;
 }
 
-
-//This returns an object with the current date and time
-function currentDate() {
-    let dates = new Date();
-    dates.time = dates.toLocaleTimeString();
-    dates.date = dates.toLocaleDateString();
-    return dates;
-}
-export {currentDate};
 
 //Scroll through posts as objects contained in an array. 
 //Indexing is achieved by adding and updating a specific attribute to the post container.
