@@ -15,7 +15,6 @@ getFormClose().onclick = () => hideFormOverlay();
 
 
 
-
 /**
  * The button sends user to the API
  * @param {objrct} userObj An object that complies with the agreement with the API 

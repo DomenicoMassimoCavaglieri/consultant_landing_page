@@ -1,4 +1,5 @@
-import {loremGenerator} from "../lorem";
+import {loremGenerator} from "../tools/lorem";
+
 
 //Test of random string generator
 
