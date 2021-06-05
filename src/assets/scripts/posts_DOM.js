@@ -106,6 +106,7 @@ function printPost(posts, index) {
     getPostName().innerHTML = posts[index].name;
     if (posts[index].icon === "local") {
         getPostIcon().setAttribute("src", IconPost);
+        getPostIcon().setAttribute("alt", "User profile picture");
     } else {
         getPostIcon().setAttribute("src", posts[index].icon);
     }
