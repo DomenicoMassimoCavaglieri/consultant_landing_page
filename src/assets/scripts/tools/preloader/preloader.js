@@ -3,7 +3,7 @@
 /**
  * This removes the preloader after at the set time
  * @param {DOM Element} wrapperInDOM 
- * @param {integer} time expressed in seconds
+ * @param {integer} time time in milliseconds
  */
 function removePreloader(wrapperInDOM, time) {
     setTimeout(() => wrapperInDOM.removeChild(document.querySelector("#preloader-overlay")), time);

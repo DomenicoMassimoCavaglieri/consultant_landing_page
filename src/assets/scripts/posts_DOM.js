@@ -4,7 +4,7 @@ import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
 import {currentDate} from "./tools/current_date";
 
 const fetchGet = "https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes";
-
+const timeOutPreloaderPost = 500; //time in milliseconds
 
 //This when loading the page loads the first post from API
 fetchPostOnPageLoad(0);
@@ -30,7 +30,7 @@ function fetchPostOnPageLoad(indexFirstPost) {
             return response.json();
         })
         .then((fetchPosts) => {
-            removePreloader(getPostWrapper(), 500);
+            removePreloader(getPostWrapper(), timeOutPreloaderPost);
             printPost(fetchPosts, indexFirstPost);
         })
         .catch(error => printError(error));
@@ -48,7 +48,7 @@ function fetchPosts(currentPostIndex) {
             return response.json();
         })
         .then((fetchPosts) => {
-            removePreloader(getPostWrapper(), 500);
+            removePreloader(getPostWrapper(), timeOutPreloaderPost);
             printNextPost(
                 fetchPosts,
                 parseInt(currentPostIndex),

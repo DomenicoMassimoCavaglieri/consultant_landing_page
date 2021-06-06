@@ -3,6 +3,7 @@ import {formSubmit} from "./form_validation";
 import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
 
 const fetchPost = "https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/user";
+const timeOutPreloaderForm = 500; //time in milliseconds
 
 //Subscribe the form
 getFormBtn().onclick = () => {
@@ -28,7 +29,7 @@ function fetchUser(userObj) {
         body: JSON.stringify(userObj)})
         .then(response => response.json())      
         .then((bodyResponse) => {
-            removePreloader(getFormWrapper(), 500);
+            removePreloader(getFormWrapper(), timeOutPreloaderForm);
             printTextInOverlay(
             `Welcome ${bodyResponse.name}.<br><br>New user: 
             ${JSON.stringify(bodyResponse)}<br>Created at:<br>${currentDate().time} on ${currentDate().date}`)
