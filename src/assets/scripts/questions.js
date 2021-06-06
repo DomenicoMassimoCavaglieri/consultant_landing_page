@@ -22,13 +22,15 @@ class QuestionAndAnswer {
         this.answer = ans;
         this.id = num;
     };
-    writeSingleQuestion() {
-        this.question = `Question ${this.id} : ${randomLoremGenMax66Words(7, 20)}`;
-        this.answer = `Answer ${this.id} : ${randomLoremGenMax66Words(3, 66)}`;
+    
+    getQuestion() {
+        return `Question ${this.id} : ${this.question}`;
+    }
+
+    getAnswer() {
+        return  `Answer ${this.id} : ${this.answer}`;
     }
 }
-
-let singleQuestion = new QuestionAndAnswer();
 
 
 //This loads the first question on the page
@@ -43,14 +45,16 @@ getLoadQuestionsBtn().onclick = () => {
 
 //This loads a question on the page
 function loadQuestion() {
-    singleQuestion.id = numberOfQuestion;
-    singleQuestion.writeSingleQuestion(
+    let singleQuestion = new QuestionAndAnswer
+    (
         randomLoremGenMax66Words(7, 20),
-        randomLoremGenMax66Words(3, 66)
+        randomLoremGenMax66Words(3, 66),
+        numberOfQuestion
     );
+
     showQuestion(
-        singleQuestion.question,
-        singleQuestion.answer,
+        singleQuestion.getQuestion(),
+        singleQuestion.getAnswer(),
         phaseAppendQuestions
     );
     //Global change
