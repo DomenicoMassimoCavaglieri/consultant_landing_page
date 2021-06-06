@@ -26,13 +26,13 @@ function initVideoSection() {
     getVideo().onmousemove = showVideoControls;
     getVideo().onmouseout = HideVideoControls;
     getVideo().onended = setVideoStop;
-    getIconPlayStop().onclick = playOrStop;
+    getIconPlayStop().onclick = togglePlayStop;
 
 }
 
 
 //A single button manages Play and Stop
-function playOrStop() {
+function togglePlayStop() {
     (videoOn) ?  setVideoStop() : setVideoPlay();
     
 }
