@@ -14,15 +14,9 @@
 
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/DomenicoMassimoCavaglieri/consultant_landing_page?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/DomenicoMassimoCavaglieri/consultant_landing_page?color=56BEB8">
+  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/DomenicoMassimoCavaglieri/consultant_landing_page">
 
-  <img alt="License" src="https://img.shields.io/github/license/DomenicoMassimoCavaglieri/consultant_landing_page?color=56BEB8">
-
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/consultant_landing_page?color=56BEB8" /> -->
-
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/consultant_landing_page?color=56BEB8" /> -->
-
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/consultant_landing_page?color=56BEB8" /> -->
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/DomenicoMassimoCavaglieri/consultant_landing_page">
 </p>
 
 <!-- Status -->
@@ -34,25 +28,25 @@
 <hr> -->
 
 <p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#about">About</a> &#xa0; | &#xa0; 
+  <a href="#technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#features">Features</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+  <a href="https://github.com/DomenicoMassimoCavaglieri" target="_blank">Author</a>
 </p>
 
 <br>
 
-# About ##
+# :pushpin: About ##
 
 Fictitious landing page of a consulting firm.<br>
 The aim is to demonstrate the ability to use web languages and technologies.<br>
 <br>
 Running the program generates an HTML file from a personal template, compiles a minified bundle of all modules in the project, and extracts the style component into a separate, minified bundle. The JS and CSS syntax are both transpilated for backward compatibility
 
-# Technologies ##
+# :pushpin: Technologies ##
 
 The following tools were used in this project:
 
@@ -65,11 +59,11 @@ The following tools were used in this project:
 - [Node.js](https://nodejs.org/en/)
 
 
-## Requirements ##
+## :pushpin: Requirements ##
 
 Before starting, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
-## Starting ##
+## :pushpin: Starting ##
 
 ```bash
 # Clone this project
@@ -90,12 +84,12 @@ $ npm run dev
 # Run the project in dev mode with Webpack server (several devices at port 3000)
 $ npm run serve
 
-# Run the project in dev mode with Webpack server (only device at port 8080)
+# Run the project in dev mode with Webpack server (single device at port 8080)
 $ npm run serve_local
 ```
 
 
-# Features ##
+# :pushpin: Features ##
 
 Mobile menu:<br>
 • modal with inhibition of the scroll of the body<br>
