@@ -1,4 +1,4 @@
-import {getFormName, getFormPassword, printTextInOverlay} from "./form";
+import {getFormName, getFormPassword, printTextInOverlay} from "./form_view";
 import {isOneFieldEmpty, isValidUsername, isValidPassword} from "./form_utility";
 
 //Validation of the correct compilation of the form
