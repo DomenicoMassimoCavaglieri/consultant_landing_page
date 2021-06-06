@@ -28,25 +28,25 @@
 <hr> -->
 
 <p align="center">
-  <a href="#about">About</a> &#xa0; | &#xa0; 
-  <a href="#technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#features">Features</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#pushpin-about">About</a> &#xa0; | &#xa0; 
+  <a href="#pushpin-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#pushpin-features">Features</a> &#xa0; | &#xa0;
+  <a href="#pushpin-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#pushpin-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
   <a href="https://github.com/DomenicoMassimoCavaglieri" target="_blank">Author</a>
 </p>
 
 <br>
 
-# :pushpin: About ##
+## :pushpin: About ##
 
 Fictitious landing page of a consulting firm.<br>
 The aim is to demonstrate the ability to use web languages and technologies.<br>
 <br>
 Running the program generates an HTML file from a personal template, compiles a minified bundle of all modules in the project, and extracts the style component into a separate, minified bundle. The JS and CSS syntax are both transpilated for backward compatibility
 
-# :pushpin: Technologies ##
+## :pushpin: Technologies ##
 
 The following tools were used in this project:
 
@@ -89,7 +89,7 @@ $ npm run serve_local
 ```
 
 
-# :pushpin: Features ##
+## :pushpin: Features ##
 
 Mobile menu:<br>
 • modal with inhibition of the scroll of the body<br>
