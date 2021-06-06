@@ -1,5 +1,21 @@
-//This brings up the modal with the menu and changes the button icon
+//Mobile menu management
+
+
 getMenuBtnClosed().onclick = () => {
+    showMobileMenu();
+}
+
+getMenuBtnOpen().onclick = () => {
+    hideMobileMenu(); 
+}
+
+
+getMobileMenuOverlay().onclick = () => {
+    hideMobileMenu(); 
+}
+
+//This brings up the modal with the menu and changes the button icon
+function showMobileMenu() {
     document.body.classList.add("mobile-menu-noscroll");
     getMobileMenuOverlay().classList.remove("hidden-notransition");
     getMenuBtnClosed().classList.add("hidden-notransition");
@@ -7,12 +23,13 @@ getMenuBtnClosed().onclick = () => {
 }
 
 //This makes the modal with the menu disappear and changes the button icon
-getMenuBtnOpen().onclick = () => {
+function hideMobileMenu() {
     getMobileMenuOverlay().classList.add("hidden-notransition");
     getMobileMenu().classList.add("hidden-notransition");
     document.body.classList.remove("mobile-menu-noscroll");
-    getMenuBtnClosed().classList.remove("hidden-notransition");
+    getMenuBtnClosed().classList.remove("hidden-notransition");    
 }
+
 
 
 //These return elements of the DOM that make up the mobile menu
