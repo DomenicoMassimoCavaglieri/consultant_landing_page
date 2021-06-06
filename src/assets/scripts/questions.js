@@ -202,10 +202,10 @@ function resetQuestionOnBox2(question, answer, nextCase) {
 /**
  * This removes the desired elements in order from the bottom
  * @param {Html Element} container DOM Element
- * @param {integer} exept Number of items to keep
+ * @param {integer} except Number of items to keep
  */
-function removeElement(container, exept) {
-    while (container.childElementCount > exept) {
+function removeElement(container, except) {
+    while (container.childElementCount > except) {
         container.removeChild(container.lastElementChild);
     }
 }
