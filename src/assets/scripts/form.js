@@ -2,6 +2,7 @@ import {currentDate} from "./tools/current_date";
 import {formSubmit} from "./form_validation";
 import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
 
+const fetchPost = "https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/user";
 
 //Subscribe the form
 getFormBtn().onclick = () => {
@@ -21,7 +22,7 @@ getFormClose().onclick = () => hideFormOverlay();
  */
 function fetchUser(userObj) {
     displayPreloader(getFormWrapper());
-    fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/user", {
+    fetch(fetchPost, {
         method: "POST",
         headers: {"Content-Type": "application/json","Accept": "application/json"},
         body: JSON.stringify(userObj)})

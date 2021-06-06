@@ -3,6 +3,9 @@ import {getNextIndexPost} from "./posts_index_logic";
 import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
 import {currentDate} from "./tools/current_date";
 
+const fetchGet = "https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes";
+
+
 //This when loading the page loads the first post from API
 fetchPostOnPageLoad(0);
 
@@ -21,7 +24,7 @@ getPostBtn().onclick = () => {
  */
 function fetchPostOnPageLoad(indexFirstPost) {
     displayPreloader(getPostWrapper());
-    fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes")
+    fetch(fetchGet)
         .then((response) => {
             printResponseData(response);
             return response.json();
@@ -39,7 +42,7 @@ function fetchPostOnPageLoad(indexFirstPost) {
  */
 function fetchPosts(currentPostIndex) {
     displayPreloader(getPostWrapper());
-    fetch("https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes")
+    fetch(fetchGet)
         .then((response) => {
             printResponseData(response);
             return response.json();
