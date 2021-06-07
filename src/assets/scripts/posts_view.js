@@ -26,8 +26,12 @@ function fetchPostOnPageLoad(indexFirstPost) {
     displayPreloader(getPostWrapper());
     fetch(fetchGet)
         .then((response) => {
-            printResponseData(response);
-            return response.json();
+            if (response.ok) {
+                printResponseData(response);
+                return response.json();
+            } else {
+                throw new Error(`${response.status}, ${response.statusText} at ${currentDate().time} on ${currentDate().date}`);                
+            };
         })
         .then((fetchPosts) => {
             removePreloader(getPostWrapper(), timeOutPreloaderPost);
@@ -44,8 +48,12 @@ function fetchPosts(currentPostIndex) {
     displayPreloader(getPostWrapper());
     fetch(fetchGet)
         .then((response) => {
-            printResponseData(response);
-            return response.json();
+            if (response.ok) {
+                printResponseData(response);
+                return response.json();
+            } else {
+                throw new Error(`${response.status}, ${response.statusText} at ${currentDate().time} on ${currentDate().date}`);                
+            };
         })
         .then((fetchPosts) => {
             removePreloader(getPostWrapper(), timeOutPreloaderPost);
