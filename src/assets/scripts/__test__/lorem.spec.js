@@ -1,15 +1,14 @@
 import {loremGenerator} from "../tools/lorem";
 
 
-//Test of random string generator
 
 describe("Lorem Generator", () => {
-  test("it should return random string", () => {
+  test("it should return the first three words", () => {
     const input = "Lorem, ipsum dolor sit amet";
 
-    const output = "Lorem, ipsum dolor sit";
+    const output = "Lorem, ipsum dolor";
 
-    expect(loremGenerator(input,4)).toEqual(output);
+    expect(loremGenerator(input,3)).toEqual(output);
 
   });
 });
