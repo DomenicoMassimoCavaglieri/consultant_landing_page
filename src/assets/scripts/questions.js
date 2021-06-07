@@ -79,6 +79,7 @@ function showQuestion(question, answer, counter) {
             appendQuestionsOnBox1(question, answer, 2);
             break;
         case 2:
+        case 6:
             appendQuestionsOnBox2(question, answer, 3);
             break;
         case 3:
@@ -90,11 +91,10 @@ function showQuestion(question, answer, counter) {
         case 5:
             resetQuestionOnBox2(question, answer, 6);
             break;
-        case 6:
-            appendQuestionsOnBox2(question, answer, 3);
-            break;
         case 7:
             replaceFirstQuestionsOnBox1(question, answer, 1, mobileMedia);
+        default:
+            phaseAppendQuestions = 0; 
     }
 
 }
