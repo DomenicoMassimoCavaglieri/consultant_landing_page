@@ -1,7 +1,7 @@
 import IconPost from '../images/feature-post-icon.svg';
 import {getNextIndexPost} from "./posts_index_logic";
-import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
-import {currentDate} from "./tools/current_date";
+import {displayPreloader, removePreloader} from "./component/preloader/preloader";
+import {currentDate} from "./utils/current_date";
 
 const fetchGet = "https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/postQuotes";
 const timeOutPreloaderPost = 500; //time in milliseconds

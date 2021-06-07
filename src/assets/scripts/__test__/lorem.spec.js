@@ -1,4 +1,4 @@
-import {loremGenerator} from "../tools/lorem";
+import {loremGenerator} from "../utils/lorem";
 
 
 

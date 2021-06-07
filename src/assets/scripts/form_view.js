@@ -1,6 +1,6 @@
-import {currentDate} from "./tools/current_date";
+import {currentDate} from "./utils/current_date";
 import {formSubmit} from "./form_validation";
-import {displayPreloader, removePreloader} from "./tools/preloader/preloader";
+import {displayPreloader, removePreloader} from "./component/preloader/preloader";
 
 const fetchPost = "https://60b21f9562ab150017ae1b08.mockapi.io/maxServer/user";
 const timeOutPreloaderForm = 500; //time in milliseconds

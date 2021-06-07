@@ -1,4 +1,4 @@
-import { randomLoremGenMax66Words } from "./tools/lorem";
+import { randomLoremGenMax66Words } from "./utils/lorem";
 
 //The LOAD MORE button loads questions and answers until the appropriate container is filled.
 //When the question boxes are full, they are alternately emptied 
