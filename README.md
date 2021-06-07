@@ -44,7 +44,8 @@
 Fictitious landing page of a consulting firm.<br>
 The aim is to demonstrate the ability to use web languages and technologies.<br>
 <br>
-Running the program generates an HTML file from a personal template, compiles a minified bundle of all modules in the project, and extracts the style component into a separate, minified bundle. The JS and CSS syntax are both transpilated for backward compatibility
+The program generates an HTML file from a personal template, compiles a minified bundle of all modules in the project, and extracts the style component into a separate, minified bundle. The JS and CSS syntax are both transpilated for backward compatibility.<br>
+The development followed the <a href="https://github.com/DomenicoMassimoCavaglieri/consultant_landing_page/projects/1" target="_blank">project tasks</a>.
 
 ## :pushpin: Technologies ##
 
@@ -123,7 +124,7 @@ Form:<br>
 • the response of the call is displayed in the modal<br>
 • to prevent the overloading of calls there is a preloader<br>
 Jest:<br>
-• Unit test on functions that do not manipulate the DOM (direct or via mock)<br>
+• Unit test on functions that do not manipulate the DOM<br>
 Webpack:<br>
 • webpack-merge to split configurations between build and dev<br>
 
