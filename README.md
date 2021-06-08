@@ -19,13 +19,6 @@
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/DomenicoMassimoCavaglieri/consultant_landing_page">
 </p>
 
-<!-- Status -->
-
-<!-- <h4 align="center"> 
-	🚧  Consultant_landing_page 🚀 Under construction...  🚧
-</h4> 
-
-<hr> -->
 
 <p align="center">
   <a href="#pushpin-about">About</a> &#xa0; | &#xa0; 
